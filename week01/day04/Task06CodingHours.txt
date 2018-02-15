@@ -1,0 +1,31 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // An average Green Fox attendee codes 6 hours daily
+            // The semester is 17 weeks long
+            //
+            // Print how many hours is spent with coding in a semester by an attendee,
+            // if the attendee only codes on workdays.
+            //
+            // Print the percentage of the coding hours in the semester if the average
+            // work hours weekly is 52
+
+            double codingHoursPerDay = 6;
+            double semesterLengthInWeeks = 17;
+            double semesterLengthInWorkdays = semesterLengthInWeeks * 5;
+            double codingHoursTotal = semesterLengthInWorkdays * codingHoursPerDay;
+            double workingHoursPerWeek = 52;
+            double codingPercentage = codingHoursTotal / (semesterLengthInWeeks * workingHoursPerWeek) * 100; // why does codingHoursTotal / (semesterLengthInWeeks * workingHoursPerWeek) * 100 represent 0 when printing fuuuuck :(( ; it didn't work because i wanted to operate with integer numbers and put the end result into a double, but still the computer remembers those int variables and rounds the dividant to 0
+
+            Console.WriteLine("An average Green Fox Academy attendee codes for " + codingHoursTotal + " hours in a " + semesterLengthInWeeks + " week long semester.");
+            Console.WriteLine("That means that our students spend an average of " + codingPercentage + "% of their time coding while being at Andrássy út 66.");
+            Console.ReadLine();
+
+        }
+    }
+}
