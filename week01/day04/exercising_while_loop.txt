@@ -1,0 +1,19 @@
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int c = 12;
+            // prints 12
+            while (c < 20)
+            {
+                Console.WriteLine(c++);
+                Console.WriteLine(c);
+            }
+
+            Console.ReadLine();
+        }
+
+    }
+}
