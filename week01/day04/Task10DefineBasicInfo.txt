@@ -1,0 +1,32 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Define several things as a variable then print their values
+            // Your name as a string
+            // Your age as an integer
+            // Your height in meters as a double
+            // Whether you are married or not as a boolean
+
+            string myName = "Szamosi Dániel";
+            int myAge = 26;
+            double myHeight = 1.76;
+            bool married = false;
+
+            Console.WriteLine("Welcome! My name is " + myName + " and I'm " + myAge + " years old with a height of " + myHeight + " metres.");
+            if (married == true)
+            {
+                Console.WriteLine("I am a married human being.");
+            }
+            else
+            {
+                Console.WriteLine("I'm not in a marriage yet.");
+            }
+            Console.ReadLine();
+        }
+    }
+}
