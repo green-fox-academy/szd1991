@@ -1,0 +1,39 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Write a program that asks for 5 integers in a row,
+            // then it should print the sum and the average of these numbers like:
+            //
+            // Sum: 22, Average: 4.4
+
+            Console.WriteLine("Good afternoon Coach!");
+            Console.Write("Please enter your starting Point Guard's height as a whole cm value: ");
+            int pointGuardHeight = int.Parse(Console.ReadLine());
+
+            Console.Write("Please enter your starting Shooting Guard's height as a whole cm value: ");
+            int shootingGuardHeight = int.Parse(Console.ReadLine());
+
+            Console.Write("Please enter your starting Small Forward's height as a whole cm value: ");
+            int smallForwardHeight = int.Parse(Console.ReadLine());
+
+            Console.Write("Please enter your starting Power Forward's height as a whole cm value: ");
+            int powerForwardHeight = int.Parse(Console.ReadLine());
+
+            Console.Write("Please enter your starting Center's height as a whole cm value: ");
+            int centerHeight = int.Parse(Console.ReadLine());
+
+            int sum = pointGuardHeight + shootingGuardHeight + smallForwardHeight + powerForwardHeight + centerHeight;
+            float ave = (pointGuardHeight + shootingGuardHeight + smallForwardHeight + powerForwardHeight + centerHeight) / 5;
+
+            Console.WriteLine("Your starting team's height fun facts:");
+            Console.WriteLine("Sum: " + sum + ", Average: " + ave);
+            
+            Console.ReadLine();
+        }
+    }
+}
