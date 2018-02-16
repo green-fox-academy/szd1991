@@ -1,0 +1,29 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Write a program that reads a number from the standard input,
+            // Then prints "Odd" if the number is odd, or "Even" if it is even.
+
+            Console.WriteLine("Hello User!");
+            Console.Write("Please enter a number you think of at the moment: ");
+            int userNumber = int.Parse(Console.ReadLine());
+
+ 
+                if (userNumber % 2 == 0)
+                {
+                    Console.WriteLine("Your chosen number is even.");
+                }
+
+                else
+                {
+                    Console.WriteLine("Your number is odd.");
+                }
+
+            Console.ReadLine();
+        }
+    }
