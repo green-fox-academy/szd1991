@@ -1,0 +1,23 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Write a program that asks for an integer that is a distance in kilometers,
+            // then it converts that value to miles and prints it
+
+            Console.WriteLine("Good day Sir/Madam! Could you tell me how far you live from Manchester (in kilometres)?");
+            int distanceManchesterKm = int.Parse(Console.ReadLine());
+
+            double distanceManMiles = (distanceManchesterKm * 0.621371);
+
+            Console.WriteLine("Did you know that it is exactly " + distanceManMiles + " miles?");
+            Console.ReadLine();
+            Console.WriteLine("Awesome, right?");
+            Console.ReadLine();
+        }
+    }
+}
