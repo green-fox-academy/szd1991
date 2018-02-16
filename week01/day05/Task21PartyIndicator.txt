@@ -1,0 +1,54 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Write a program that asks for two numbers
+            // Thw first number represents the number of girls that comes to a party, the
+            // second the boys
+            // It should print: The party is exellent!
+            // If the the number of girls and boys are equal and there are more people coming than 20
+            //
+            // It should print: Quite cool party!
+            // It there are more than 20 people coming but the girl - boy ratio is not 1-1
+            //
+            // It should print: Average party...
+            // If there are less people coming than 20
+            //
+            // It should print: Sausage party
+            // If no girls are coming, regardless the count of the people
+
+            Console.WriteLine("Hi little Black Eyed Pea! Your Party Indicator (P.I.) here...");
+            Console.Write("Please tell me how many girls are coming to the next event: ");
+            int ladies = int.Parse(Console.ReadLine());
+            Console.Write("Now please enter how many boys are expected at that party: ");
+            int gents = int.Parse(Console.ReadLine());
+
+            if (ladies == 0)
+            {
+                Console.WriteLine("A sausage party... I'd not be interested if I were you. :/");
+            }
+
+            else if (ladies + gents < 20)
+            {
+                Console.WriteLine("That's nothing more than an average party... You might consider skipping it.");
+            }
+
+            else if (ladies + gents > 20 && ladies == gents)
+            {
+                Console.WriteLine("That party is going to be excellent!!!! Throw everything away and go!");
+            }
+
+            else if (ladies + gents > 20 && ladies != gents)
+            {
+                Console.WriteLine("That's quite a cool party! I advise you to grab a six pack and leave!");
+            }
+
+            Console.WriteLine("Have a good night, whatever your choice may be! Bye, Friend! ;)");
+            Console.ReadLine();
+        }
+    }
+}
