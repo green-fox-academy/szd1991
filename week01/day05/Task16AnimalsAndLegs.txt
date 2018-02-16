@@ -1,0 +1,25 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Write a program that asks for two integers
+            // The first represents the number of chickens the farmer has
+            // The second represents the number of pigs owned by the farmer
+            // It should print how many legs all the animals have
+
+            Console.WriteLine("Hello Farmer!");
+            Console.WriteLine("How many chickens do you have?");
+            int chickens = int.Parse(Console.ReadLine());
+            Console.WriteLine("And how many pigs do you have?");
+            int pigs = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("That means you have " + (chickens * 2 + pigs * 4) + " animal legs running around on your farm. That's cool!");
+
+            Console.ReadLine();
+        }
+    }
+}
