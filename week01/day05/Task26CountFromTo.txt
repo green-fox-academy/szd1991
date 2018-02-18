@@ -26,18 +26,19 @@ namespace GreenFox
             Console.Write("Please enter your second number: ");
             int second = int.Parse(Console.ReadLine());
 
-            if (second <= first)
+            while (second <= first)
             {
                 Console.WriteLine("Nope, second number should be bigger! Try again!");
-            }
+                Console.Write("Please enter your first number: ");
+                first = int.Parse(Console.ReadLine());
+                Console.Write("Please enter your second number: ");
+                second = int.Parse(Console.ReadLine());
+            };
 
-            else
+            do
             {
-                do
-                {
-                    Console.WriteLine(first++);
-                } while (first != second);
-            }
+                Console.WriteLine(first++);
+            } while (first != second);
 
             Console.ReadLine();
         }
