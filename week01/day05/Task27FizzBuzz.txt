@@ -1,0 +1,89 @@
+using System;
+
+namespace GreenFox
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Write a program that prints the numbers from 1 to 100.
+            // But for multiples of three print “Fizz” instead of the number
+            // and for the multiples of five print “Buzz”.
+            // For numbers which are multiples of both three and five print “FizzBuzz”.
+
+            // Solution with for loop:
+            for (int fb = 1; fb <= 100; fb++)
+            {
+                if (fb % 3 == 0 && fb % 5 == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if (fb % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (fb % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(fb);
+                }
+            }
+            Console.WriteLine("END OF FOR LOOP.");
+
+            // Maybe while loop:
+            int fibu = 1; // ctrl + . advices you to rename a variable at all occurencies
+            while (fibu <= 100)
+            {
+                if (fibu % 3 == 0 && fibu % 5 == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if (fibu % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (fibu % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(fibu);
+                }
+
+                fibu++;
+            }
+            Console.WriteLine("END OF WHILE LOOP.");
+
+            // Do...While loop?
+            int fizbuz = 1;
+            do
+            {
+                if (fizbuz % 3 == 0 && fizbuz % 5 == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if (fizbuz % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (fizbuz % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(fizbuz);
+                }
+
+                fizbuz++;
+            } while (fizbuz <= 100);
+            Console.WriteLine("END OF DO...WHILE LOOP.");
+
+            Console.ReadLine();
+        }
+    }
+}
