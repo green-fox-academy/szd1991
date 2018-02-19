@@ -1,0 +1,30 @@
+using System;
+
+namespace DoubleItems
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // - Create an array variable named `ag`
+            //   with the following content: `[3, 4, 5, 6, 7]`
+            // - Double all the values in the array
+            int[] ag = { 3, 4, 5, 6, 7 };
+
+            Console.WriteLine("Original 'ag' array:");
+            foreach (int ga in ag)
+            {
+                Console.WriteLine(ga);
+            }
+
+            Console.WriteLine("Modified 'ag' array with doubled values:");
+            for (int i = 0; i < ag.Length; i++)
+            {
+                ag[i] *= 2;
+                Console.WriteLine(ag[i]);
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
