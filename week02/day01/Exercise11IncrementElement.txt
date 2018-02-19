@@ -1,0 +1,31 @@
+using System;
+
+namespace IncrementElement
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //- Create an array variable named `t`
+            //  with the following content: `[1, 2, 3, 4, 5]`
+            //- Increment the third element
+            //- Print the third element
+
+            // exercise to assign values into array with a for loop
+            int[] t = new int[5];
+
+            Console.WriteLine("Original 't' array:");
+            for (int v = 0; v < t.Length; v++)
+            {
+                t[v] = v + 1;
+                Console.WriteLine(t[v]);
+            }
+
+            t[2]++;
+            
+            Console.WriteLine("Third element after incrementing it: " + t[2]);
+
+            Console.ReadLine();
+        }
+    }
+}
