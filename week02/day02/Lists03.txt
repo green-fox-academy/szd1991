@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AppendLetter
+{
+    public class AppendLetter
+    {
+        public static void AppendA(List<string> a)
+        {
+            
+
+            foreach (var item in a)
+            {
+                StringBuilder sb = new StringBuilder(item);
+                sb.Append("a");
+                Console.Write("\""+ sb +"\", ");
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            var far = new List<string> { "kuty", "macsk", "kacs", "rók", "halacsk" };
+            // Create a method called AppendA() that adds "a" to every string in the far list.
+            // The parameter should be a list.
+
+            AppendA(far);
+            Console.ReadLine();
+            // Expected output: "kutya", "macska", "kacsa", "róka", "halacska"
+        }
+    }
+}
