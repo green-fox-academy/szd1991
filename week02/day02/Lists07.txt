@@ -5,16 +5,13 @@ namespace QuoteSwap
 {
     public class QuoteSwap
     {
-        public static void QuoteSwapp(List<string> gr)
+        public static List<string> QuoteSwapp(List<string> gr)
         {
             string tmp = gr[gr.IndexOf("do")];
             gr[gr.IndexOf("do")] = gr[gr.IndexOf("cannot")];
             gr[gr.LastIndexOf("cannot")] = tmp;
 
-            for (int i = 0; i < gr.Count; i++)
-            {
-                Console.Write(gr[i] + " ");
-            }
+            return gr;
         }
 
         public static void Main(string[] args)
@@ -28,6 +25,10 @@ namespace QuoteSwap
 
             // Also, print the sentence to the output with spaces in between.
             QuoteSwapp(list);
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.Write(list[i] + " ");
+            }
             // Expected output: "What I cannot create I do not understand." 
             Console.ReadLine();
         }

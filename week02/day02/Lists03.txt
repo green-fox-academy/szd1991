@@ -6,16 +6,17 @@ namespace AppendLetter
 {
     public class AppendLetter
     {
-        public static void AppendA(List<string> a)
+        public static List<string> AppendA(List<string> a)
         {
-            
 
-            foreach (var item in a)
+
+            for (int i = 0; i < a.Count; i++)
             {
-                StringBuilder sb = new StringBuilder(item);
+                StringBuilder sb = new StringBuilder(a[i]);
                 sb.Append("a");
-                Console.Write("\""+ sb +"\", ");
+                a[i] = sb.ToString();
             }
+            return a;
         }
 
         public static void Main(string[] args)
@@ -25,6 +26,17 @@ namespace AppendLetter
             // The parameter should be a list.
 
             AppendA(far);
+            for (int i = 0; i < far.Count; i++)
+            {
+                if (i == (far.Count - 1))
+                {
+                    Console.Write("\"" + far[i] + "\"");
+                }
+                else
+                {
+                    Console.Write("\"" + far[i] + "\"" + ", ");
+                }
+            }
             Console.ReadLine();
             // Expected output: "kutya", "macska", "kacsa", "róka", "halacska"
         }
