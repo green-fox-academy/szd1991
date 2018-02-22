@@ -24,7 +24,7 @@ namespace Drawing
             var foxDraw = new FoxDraw(canvas);
             // draw four different size and color rectangles.
             // avoid code duplication.
-
+            
             DrawFourRectangles(foxDraw);
         }
 
@@ -34,29 +34,14 @@ namespace Drawing
             int startY = 10;
             int originalWidth = 100;
             int originalHeight = 50;
-            foxDraw.StrokeColor(Colors.Crimson);
+            foxDraw.StrokeColor(Colors.DarkViolet);
+
+            Color[] colorOfBoxes = new Color[] { Colors.Pink, Colors.HotPink, Colors.DeepPink, Colors.LightPink };
 
             for (int i = 1; i <= 4; i++)
             {
-                if (i == 1)
-                {
-                    foxDraw.FillColor(Colors.Cyan);
-                }
-                else if (i == 2)
-                {
-                    foxDraw.FillColor(Colors.DarkGoldenrod);
-                }
-                else if (i == 3)
-                {
-                    foxDraw.FillColor(Colors.DarkOrange);
-                }
-                else
-                {
-                    foxDraw.FillColor(Colors.LemonChiffon);
-                }
-
-                foxDraw.DrawRectangle(startX * i, startY * 10 * i, originalWidth * i, originalHeight * i);
-
+                foxDraw.FillColor(colorOfBoxes[i - 1]);
+                foxDraw.DrawRectangle(startX * i, startY * 10 * i, originalWidth * i / 2, originalHeight * i / 2);
             }
         }
     }
