@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using GreenFox;
+
+namespace Drawing
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            var foxDraw = new FoxDraw(canvas);
+            // Draw the night sky:
+            //  - The background should be black
+            //  - The stars can be small squares
+            //  - The stars should have random positions on the canvas
+            //  - The stars should have random color (some shade of grey)
+
+            Random random = new Random();
+            Color[] starColors = new Color[] { Colors.White, Colors.LightGray, Colors.LightSlateGray, Colors.DimGray, Colors.Gray };
+
+            for (int i = 0; i < 1000; i++)
+            {
+                Color starColor = starColors[random.Next(0, starColors.Length)];
+                foxDraw.StrokeColor(starColor);
+                foxDraw.FillColor(starColor);
+                double starRadius = random.Next(1, 3);
+                foxDraw.DrawEllipse(random.Next(0, (int)canvas.Width), random.Next(0, (int)canvas.Height), starRadius, starRadius);
+            }
+        }
+    }
+}
