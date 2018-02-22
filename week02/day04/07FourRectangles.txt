@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using GreenFox;
+
+namespace Drawing
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            var foxDraw = new FoxDraw(canvas);
+            // draw four different size and color rectangles.
+            // avoid code duplication.
+
+            DrawFourRectangles(foxDraw);
+        }
+
+        public static void DrawFourRectangles(FoxDraw foxDraw)
+        {
+            int startX = 10;
+            int startY = 10;
+            int originalWidth = 100;
+            int originalHeight = 50;
+            foxDraw.StrokeColor(Colors.Crimson);
+
+            for (int i = 1; i <= 4; i++)
+            {
+                if (i == 1)
+                {
+                    foxDraw.FillColor(Colors.Cyan);
+                }
+                else if (i == 2)
+                {
+                    foxDraw.FillColor(Colors.DarkGoldenrod);
+                }
+                else if (i == 3)
+                {
+                    foxDraw.FillColor(Colors.DarkOrange);
+                }
+                else
+                {
+                    foxDraw.FillColor(Colors.LemonChiffon);
+                }
+
+                foxDraw.DrawRectangle(startX * i, startY * 10 * i, originalWidth * i, originalHeight * i);
+
+            }
+        }
+    }
+}
