@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using GreenFox;
+
+namespace Drawing
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            var foxDraw = new FoxDraw(canvas);
+            // Fill the canvas with a checkerboard pattern.
+
+            double[][] checkerBoard = new double[2][];
+            checkerBoard[0] = new double[] { 0, 1, 2, 3, 4, 5, 6, 7 };
+            checkerBoard[1] = new double[] { 0, 1, 2, 3, 4, 5, 6, 7 };
+            foxDraw.StrokeColor(Colors.Black);
+            for (int l = 0; l < checkerBoard[0].Length; l++)
+            {
+                for (int c = 0; c < checkerBoard[1].Length; c++)
+                {
+                    if ((l + c) % 2 == 0)
+                    {
+                        foxDraw.FillColor(Colors.BlanchedAlmond);
+                    }
+                    else if ((l + c) % 2 != 0)
+                    {
+                        foxDraw.FillColor(Colors.SaddleBrown);
+                    }
+
+                    foxDraw.DrawRectangle(checkerBoard[0][l] + l * canvas.Width / 8, checkerBoard[0][c] + c * canvas.Height / 8, canvas.Width / 8, canvas.Height / 8);
+                }
+            };
+        }
+    }
+}
