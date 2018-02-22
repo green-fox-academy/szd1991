@@ -34,7 +34,7 @@ namespace Drawing
 
             foxDraw.StrokeColor(Colors.Teal);
 
-            for (int i = 0; i <= canvas.Width; i+= 20) // I wanted to practice nested loops...
+            for (int i = 0; i <= canvas.Width; i += 20) // I wanted to practice nested loops...
             {
                 Point startingUpside = new Point(startingX + i, startingY);
                 foxDraw.DrawLine(startingUpside, center);
@@ -68,8 +68,21 @@ namespace Drawing
                         }
                     }
                 }
-                
+            } 
+            /*
+            foxDraw.StrokeColor(Colors.Yellow);
+
+            double radius = 900;
+
+            for (int i = 0; i <= 360; i += 9)
+            {
+                startingX = radius * Math.Sin(i / 9);
+                startingY = radius * Math.Cos(i / 9);
+                Point startingPoint = new Point(startingX, startingY);
+
+                foxDraw.DrawLine(startingPoint, center);
             }
+            */
         }
     }
 }
