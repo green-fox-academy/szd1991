@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using GreenFox;
+
+namespace Drawing
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            var foxDraw = new FoxDraw(canvas);
+            // create a square drawing function that takes 1 parameter:
+            // the square size
+            // and draws a square of that size to the center of the canvas.
+            // draw 3 squares with that function.
+            // avoid code duplication.
+            
+
+            int squareSize = 200;
+            CenteredSquaresAreCool(foxDraw, canvas.Width, canvas.Height, squareSize);
+
+        }
+
+        public static void CenteredSquaresAreCool(FoxDraw foxDraw, double width, double height, int size)           // Couldn't do it with defining only one parameter because I couldn't pass canvas here.
+        {
+            
+            foxDraw.StrokeColor(Colors.Gold);
+            for (int i = 1; i <= 3; i++)
+            {
+                if (i == 1)
+                {
+                    foxDraw.FillColor(Colors.DarkBlue);
+                }
+                else if (i == 2)
+                {
+                    foxDraw.FillColor(Colors.MediumBlue);
+                }
+                else if (i == 3)
+                {
+                    foxDraw.FillColor(Colors.LightBlue);
+                }
+                foxDraw.DrawRectangle(width / 2 - (size - 50 * i) / 2, height / 2 - (size - 50 * i) / 2, size - 50 * i, size - 50 * i);
+            }
+        }
+    }
+}
