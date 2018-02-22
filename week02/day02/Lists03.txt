@@ -8,8 +8,6 @@ namespace AppendLetter
     {
         public static List<string> AppendA(List<string> a)
         {
-
-
             for (int i = 0; i < a.Count; i++)
             {
                 StringBuilder sb = new StringBuilder(a[i]);

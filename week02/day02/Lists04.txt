@@ -6,20 +6,20 @@ namespace CandyShop
 {
     public class Candyshop
     {
-        public static List<object> Sweets(List<object> wtf)
+        public static List<object> Sweets(List<object> products)
         {
-            for (int i = 0; i < wtf.Count; i++)
+            for (int i = 0; i < products.Count; i++)
             {
-                if (wtf[i].Equals(2))
+                if (products[i].Equals(2))
                 {
-                    wtf[i] = ("Croissant");
-                };
-                if (wtf[i].Equals(false))
+                    products[i] = ("Croissant");
+                }
+                if (products[i].Equals(false))
                 {
-                    wtf[i] = ("Ice cream");
-                };
+                    products[i] = ("Ice cream");
+                }
             }
-            return wtf;
+            return products;
         }
 
         public static void Main(string[] args)
@@ -39,7 +39,7 @@ namespace CandyShop
 
             foreach (var product in list)
             {
-                Console.WriteLine(product);
+                Console.Write($"\"{product}\", ");
             };
 
             Console.ReadLine();

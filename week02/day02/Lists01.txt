@@ -5,14 +5,10 @@ namespace SolarSystem
 {
     public class SolarSystem
     {
-        public static void PutSaturn(List<string> a)
+        public static List<string> PutSaturn(List<string> planets)
         {
-            a.Add("Saturn");
-
-            foreach (var planet in a)
-            {
-                Console.Write("\"" + planet + "\"" + ", ");
-            }
+            planets.Add("Saturn");
+            return planets;
         }
 
         public static void Main(string[] args)
@@ -25,6 +21,10 @@ namespace SolarSystem
             // Create a method called PutSaturn() which has list parameter and returns the correct list.
 
             PutSaturn(planetList);
+            foreach (var planet in planetList)
+            {
+                Console.Write($"\"{planet}\", ");
+            }
             Console.ReadLine();
             // Expected output: "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Uranus", "Neptune", "Saturn"
         }
