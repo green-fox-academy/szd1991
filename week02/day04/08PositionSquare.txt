@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using GreenFox;
+
+namespace Drawing
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            var foxDraw = new FoxDraw(canvas);
+            // create a square drawing function that takes 2 parameters:
+            // the x and y coordinates of the square's top left corner
+            // and draws a 50x50 square from that point.
+            // draw 3 squares with that function.
+            // avoid code duplication.
+
+            int startingX = 40;
+            int startingY = 20;
+
+            FourSquare(foxDraw, startingX, startingY);
+        }
+
+        public static void FourSquare(FoxDraw foxDraw, int x, int y)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                foxDraw.StrokeColor(Color.FromRgb(125, 250, 95));
+                foxDraw.FillColor(Color.FromRgb(200, 212, 50));
+                foxDraw.DrawRectangle(x + i * 100, y + i * 100, 50, 50);
+            }
+        }
+    }
+}
