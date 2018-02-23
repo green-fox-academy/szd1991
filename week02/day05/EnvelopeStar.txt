@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using GreenFox;
+
+namespace Drawing
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            var foxDraw = new FoxDraw(canvas);
+            foxDraw.StrokeColor(Colors.Green);
+
+            double pointDistance = 20;
+            double howManyPoints = canvas.Width / pointDistance / 2;
+
+            double origoX = canvas.Width / 2;
+            double origoY = canvas.Height / 2;
+
+            List<Point> pointsOfYNorthside = new List<Point>();
+            List<Point> pointsOfXEastside = new List<Point>();
+
+            List<Point> pointsOfYSouthside = new List<Point>();
+            List<Point> pointsOfXWestside = new List<Point>();
+
+            for (int i = 0; i < howManyPoints; i++)
+            {
+                pointsOfYNorthside.Add(new Point(origoX, i * pointDistance));
+                pointsOfXEastside.Add(new Point(origoX + i * pointDistance, origoY));
+
+                pointsOfYSouthside.Add(new Point(origoX, canvas.Height - i * pointDistance));
+                pointsOfXWestside.Add(new Point(origoY - i * pointDistance, origoY));
+
+                foxDraw.DrawLine(pointsOfYNorthside[i], pointsOfXEastside[i]);
+                foxDraw.DrawLine(pointsOfYNorthside[i], pointsOfXWestside[i]);
+
+                foxDraw.DrawLine(pointsOfYSouthside[i], pointsOfXEastside[i]);
+                foxDraw.DrawLine(pointsOfYSouthside[i], pointsOfXWestside[i]);
+            }
+        }
+    }
+}
