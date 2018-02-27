@@ -16,21 +16,21 @@ namespace WriteMultipleLines
     {
         public static void WriteLines(string file, string word, int numberOfLines)
         {
+            StreamWriter streamWriter = new StreamWriter(file);
             for (int i = 0; i < numberOfLines; i++)
             {
-                File.WriteAllLines(file, word);
+                streamWriter.WriteLine(word);
             }
+            streamWriter.Close();
         }
 
         public static void Main(string[] args)
         {
             string blueberries = @".\Blueberries.txt";
-            string mysteriousFile = @".\IsThereEvenAFileLikeThis.txt";
             string wordToWrite = "Blueberry";
-            int howManyLines = 5;
+            int howManyLines = 8;
 
             WriteLines(blueberries, wordToWrite, howManyLines);
-            WriteLines(mysteriousFile, wordToWrite, howManyLines);
 
             string[] content = File.ReadAllLines(blueberries);
 
