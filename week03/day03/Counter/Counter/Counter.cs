@@ -17,8 +17,8 @@ namespace Counter
 {
     class Counter
     {
-        int DefaultValue;
-        int CurrentValue;
+        private int DefaultValue;
+        private int CurrentValue;
 
         public Counter(int DefaultValue = 0)
         {

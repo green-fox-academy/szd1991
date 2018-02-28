@@ -49,6 +49,7 @@ namespace Counter
             if (freak == "Y" || freak == "Yes")
             {
                 dailyGFAHappinessMeter.Reset();
+                Console.WriteLine("Daily progress lost. Sorry... :(");
             }
             else
             {
