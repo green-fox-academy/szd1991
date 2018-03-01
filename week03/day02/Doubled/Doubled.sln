@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doubled", "Doubled\Doubled.csproj", "{00B5DCD7-CACC-4C29-9471-B39CE45A1690}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00B5DCD7-CACC-4C29-9471-B39CE45A1690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B5DCD7-CACC-4C29-9471-B39CE45A1690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B5DCD7-CACC-4C29-9471-B39CE45A1690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B5DCD7-CACC-4C29-9471-B39CE45A1690}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9EA76E7F-9280-4EB6-9E4B-07E4EABBF8D5}
+	EndGlobalSection
+EndGlobal
