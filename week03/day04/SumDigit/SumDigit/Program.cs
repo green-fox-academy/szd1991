@@ -19,6 +19,14 @@ namespace SumDigit
 
         public static int SumDigits(int n)
         {
+            if (n / 10 == 0)
+            {
+                return n = n % 10;
+            }
+            else
+            {
+                return n % 10 + SumDigits(n / 10);
+            }
         }
     }
 }
