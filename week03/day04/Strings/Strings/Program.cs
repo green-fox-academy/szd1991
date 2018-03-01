@@ -1,4 +1,5 @@
-﻿// Given a string, compute recursively a new string where all the 'x' chars have been removed.
+﻿// Given a string, compute recursively (no loops) a new string where all the
+// lowercase 'x' chars have been changed to 'y' chars.
 
 using System;
 
@@ -8,22 +9,23 @@ namespace Strings
     {
         static void Main(string[] args)
         {
-            string xHyppopotamus = "Hyppxxoxpoxtamxxxuxs";
-
-            Console.WriteLine($"A {xHyppopotamus} without letter x's is just a {xRemover(xHyppopotamus)}.");
+            string welcome = "Sorrx I don't feel mxself verx well. Maxbe xou can do something about it?";
+            Console.WriteLine(welcome);
+            Console.WriteLine("Sure here you go:");
+            Console.WriteLine(xToYConverter(welcome));
 
             Console.ReadLine();
         }
 
-        public static string xRemover(string x)
+        public static string xToYConverter(string x)
         {
             if (x.StartsWith("x"))
             {
-                return x.Replace("x", "");
+                return x.Replace("x", "y");
             }
             else
             {
-                return x[0] + xRemover(x.Substring(1));
+                return x[0] + xToYConverter(x.Substring(1));
             }
         }
     }
