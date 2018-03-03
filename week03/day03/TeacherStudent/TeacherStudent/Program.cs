@@ -33,6 +33,18 @@ namespace TeacherStudent
                 }
             }
 
+            foreach (var teacher in teachers)
+            {
+                Console.WriteLine($"Teacher name: {teacher.GetName()}");
+                Console.WriteLine($"Teacher wisdom: {teacher.GetWisdom()}\n");
+            }
+
+            foreach (var student in students)
+            {
+                Console.WriteLine($"Student name: {student.GetName()}");
+                Console.WriteLine($"Student knowledge: {student.GetKnowledge()}\n");
+            }
+
             Console.ReadLine();
         }
     }

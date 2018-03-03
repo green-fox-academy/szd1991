@@ -41,9 +41,9 @@ namespace Counter
             CurrentValue = DefaultValue;
         }
 
-        public string GetCurrentValue()
+        public int GetCurrentValue()
         {
-            return Convert.ToString(CurrentValue);
+            return CurrentValue;
         }
     }
 }
