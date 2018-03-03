@@ -35,7 +35,7 @@ namespace SquareGrid
         public static void DrawSquaresOnSquaresOnSquares(FoxDraw foxDraw, double centerX, double centerY, double offset)
         {
             foxDraw.DrawRectangle(centerX - offset / 2, centerY - offset / 2, offset, offset);
-            
+
             if (offset <= 50)
             {
                 return;
