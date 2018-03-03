@@ -28,7 +28,7 @@ namespace RecursiveSquares
             foxDraw.StrokeColor(Colors.Navy);
             foxDraw.FillColor(Colors.Gold);
 
-            foxDraw.DrawRectangle(0, 0, canvas.Width, canvas.Height);
+            // foxDraw.DrawRectangle(0, 0, canvas.Width, canvas.Height);
 
             DrawFourBoxes(foxDraw, 0, 0, side);
 
