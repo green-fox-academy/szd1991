@@ -18,6 +18,7 @@ namespace GreenFoxInheritance
         public Student() : base()
         {
             previousOrganization = "The School of Life";
+            skippedDays = 0;
         }
 
         public override void GetGoal()
