@@ -8,6 +8,11 @@ namespace TheGardenApplication
     {
         public Tree(string colour) : base(colour)
         {
+            waterAbsorb = 0.4f;
+        }
+
+        public override bool CheckIfNeedsWater()
+        {
             if (currentWaterAmount < 10)
             {
                 needsWater = true;
@@ -17,7 +22,7 @@ namespace TheGardenApplication
                 needsWater = false;
             }
 
-            waterAbsorb = 0.4f;
+            return needsWater;
         }
     }
 }

@@ -6,15 +6,29 @@ namespace TheGardenApplication
 {
     class Plant
     {
-        protected string colour;
-        protected float currentWaterAmount;
-        protected bool needsWater;
-        protected float waterAbsorb;
+        internal string colour;
+        internal float currentWaterAmount;
+        internal bool needsWater;
+        internal float waterAbsorb;
 
         public Plant(string colour)
         {
             this.colour = colour;
             currentWaterAmount = 0f;
+        }
+
+        public virtual bool CheckIfNeedsWater()
+        {
+            if (currentWaterAmount < 5)
+            {
+                needsWater = true;
+            }
+            else
+            {
+                needsWater = false;
+            }
+
+            return needsWater;
         }
     }
 }

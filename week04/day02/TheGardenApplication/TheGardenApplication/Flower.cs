@@ -8,16 +8,12 @@ namespace TheGardenApplication
     {
         public Flower(string colour) : base(colour)
         {
-            if (currentWaterAmount < 5)
-            {
-                needsWater = true;
-            }
-            else
-            {
-                needsWater = false;
-            }
-
             waterAbsorb = 0.75f;
+        }
+
+        public override bool CheckIfNeedsWater()
+        {
+            return base.CheckIfNeedsWater();
         }
     }
 }
