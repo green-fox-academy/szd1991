@@ -9,20 +9,14 @@ namespace GreenFoxInheritance
         private string company;
         private int hiredStudents;
 
-        public Sponsor(string name, int age, string gender, string company)
+        public Sponsor(string name, int age, string gender, string company) : base(name, age, gender)
         {
-            this.name = name;
-            this.age = age;
-            this.gender = gender;
             this.company = company;
             hiredStudents = 0;
         }
 
-        public Sponsor()
+        public Sponsor() : base()
         {
-            name = "Jane Doe";
-            age = 30;
-            gender = "female";
             company = "Google";
             hiredStudents = 0;
         }

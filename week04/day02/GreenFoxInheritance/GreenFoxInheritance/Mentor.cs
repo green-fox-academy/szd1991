@@ -8,19 +8,13 @@ namespace GreenFoxInheritance
     {
         string level;
 
-        public Mentor(string name, int age, string gender, string level)
+        public Mentor(string name, int age, string gender, string level) : base(name, age, gender)
         {
-            this.name = name;
-            this.age = age;
-            this.gender = gender;
             this.level = level;
         }
 
-        public Mentor()
+        public Mentor() : base()
         {
-            name = "Jane Doe";
-            age = 30;
-            gender = "female";
             level = "intermediate";
         }
 

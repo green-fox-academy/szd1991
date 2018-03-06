@@ -9,20 +9,14 @@ namespace GreenFoxInheritance
         private string previousOrganization;
         private int skippedDays;
 
-        public Student(string name, int age, string gender, string previousOrganization)
+        public Student(string name, int age, string gender, string previousOrganization) : base(name, age, gender)
         {
-            this.name = name;
-            this.age = age;
-            this.gender = gender;
             this.previousOrganization = previousOrganization;
             skippedDays = 0;
         }
 
-        public Student()
+        public Student() : base()
         {
-            name = "Jane Doe";
-            age = 30;
-            gender = "female";
             previousOrganization = "The School of Life";
         }
 
