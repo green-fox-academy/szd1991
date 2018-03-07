@@ -22,7 +22,7 @@ namespace SierpinskyCarpet
         {
             InitializeComponent();
             var foxDraw = new FoxDraw(canvas);
-
+            
             double startX = canvas.Width / 3;
             double startY = canvas.Height / 3;
             double startSide = canvas.Width / 3;
