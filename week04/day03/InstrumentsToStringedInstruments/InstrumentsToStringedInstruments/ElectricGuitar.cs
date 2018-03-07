@@ -4,21 +4,20 @@ using System.Text;
 
 namespace InstrumentsToStringedInstruments
 {
-    class ElectricGuitar : StringedInstrument
+    public class ElectricGuitar : StringedInstrument
     {
         public ElectricGuitar(int numberOfStrings = 6, string name = "Electric Guitar") : base(numberOfStrings, name)
         {
         }
 
-        public override void Play()
+        public override string Play()
         {
-            Console.Write($"{name}, a {numberOfStrings}-stringed instrument that goes ");
-            Sound();
+            return $"{name}, a {numberOfStrings}-stringed instrument that goes " + Sound();
         }
 
-        public override void Sound()
+        public override string Sound()
         {
-            Console.WriteLine("TWANG");
+            return "TWANG";
         }
     }
 }

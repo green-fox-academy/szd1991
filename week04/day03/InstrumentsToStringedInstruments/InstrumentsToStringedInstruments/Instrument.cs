@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InstrumentsToStringedInstruments
 {
-    abstract class Instrument
+    public abstract class Instrument
     {
         protected string name;
 
@@ -13,6 +13,6 @@ namespace InstrumentsToStringedInstruments
             this.name = name;
         }
 
-        public abstract void Play();
+        public abstract string Play();
     }
 }
