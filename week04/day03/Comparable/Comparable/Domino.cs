@@ -19,12 +19,12 @@ namespace Comparable
                 Console.WriteLine(domino.GetValues()[1] + "]");
             }
             Console.WriteLine("\n");
-
+            /*
             for (int i = 0; i < dominoes.Count - 1; i++)
             {
                 dominoes[i].CompareTo(dominoes[i + 1]);
             }
-
+            */
             dominoes.Sort();
 
             foreach (var domino in dominoes)
