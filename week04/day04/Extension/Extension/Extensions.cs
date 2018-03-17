@@ -19,6 +19,8 @@ namespace Extension
                 return a;
             else if (b > a && b > c)
                 return b;
+            else if (a == b)
+                return a;
             else
                 return c;
         }
