@@ -17,7 +17,7 @@ namespace PetrolStation
             this.Capacity = Capacity;
         }
 
-        public float GetGasAmountCar()
+        public float GetGasAmount()
         {
             return this.GasAmount;
         }
@@ -34,7 +34,7 @@ namespace PetrolStation
 
         public void PrintStatus()
         {
-            Console.WriteLine($"{Name} car: gas amount - {GetGasAmountCar()} of {GetCapacity()} possible full capacity.");
+            Console.WriteLine($"{Name} car: gas amount - {GetGasAmount()} of {GetCapacity()} possible full capacity.");
         }
     }
 }

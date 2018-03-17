@@ -17,7 +17,7 @@ namespace PetrolStation
 
         public void Refill(Car car)
         {
-            GasAmount -= car.GetCapacity();
+            GasAmount -= (car.GetCapacity() - car.GetGasAmount());
             car.SetGasAmount(car.GetCapacity());
         }
 
