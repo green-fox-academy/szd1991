@@ -31,5 +31,10 @@ namespace PetrolStation
         {
             GasAmount = _gasAmount;
         }
+
+        public void PrintStatus()
+        {
+            Console.WriteLine($"{Name} car: gas amount - {GetGasAmountCar()} of {GetCapacity()} possible full capacity.");
+        }
     }
 }
