@@ -58,6 +58,18 @@ namespace ExtensionTests
             }
 
             [Test]
+            public void TestMaxOfThree_Second()
+            {
+                Assert.AreEqual(5, extension.MaxOfThree(3, 5, 4));
+            }
+
+            [Test]
+            public void TestMaxOfThree_FirstIsBiggerThanSecond_ButThirdIsGreatest()
+            {
+                Assert.AreEqual(5, extension.MaxOfThree(4, 3, 5));
+            }
+
+            [Test]
             public void TestMedian_Four()
             {
                 Assert.AreEqual(5, extension.Median(new List<int>() { 7, 5, 3, 5 }));
