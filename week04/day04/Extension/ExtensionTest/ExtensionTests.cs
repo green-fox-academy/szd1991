@@ -130,6 +130,18 @@ namespace ExtensionTests
             }
 
             [Test]
+            public void TestIsVowel_x()
+            {
+                Assert.False(extension.IsVowel('x'));
+            }
+
+            [Test]
+            public void TestIsVowel_f()
+            {
+                Assert.False(extension.IsVowel('f'));
+            }
+
+            [Test]
             public void testTranslate_bemutatkozik()
             {
                 Assert.AreEqual("bevemuvutavatkovozivik", extension.Translate("bemutatkozik"));
