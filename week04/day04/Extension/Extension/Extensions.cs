@@ -27,6 +27,7 @@ namespace Extension
 
         public int Median(List<int> pool)
         {
+            pool.Sort();
             return pool[(pool.Count - 1) / 2];
         }
 
