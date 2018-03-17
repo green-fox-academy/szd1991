@@ -10,7 +10,7 @@ namespace Extension
     {
         public int Add(int a, int b)
         {
-            return 5;
+            return a + b;
         }
 
         public int MaxOfThree(int a, int b, int c)
