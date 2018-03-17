@@ -22,6 +22,24 @@ namespace ExtensionTests
             }
 
             [Test]
+            public void TestAdd_8plus3_is11()
+            {
+                Assert.AreEqual(11, extension.Add(8, 3));
+            }
+
+            [Test]
+            public void TestAdd_24plus6_is30()
+            {
+                Assert.AreEqual(30, extension.Add(24, 6));
+            }
+
+            [Test]
+            public void TestAdd_2plus2_is4()
+            {
+                Assert.AreEqual(4, extension.Add(2, 2));
+            }
+
+            [Test]
             public void TestAdd_1and4is5()
             {
                 Assert.AreEqual(5, extension.Add(1, 4));
