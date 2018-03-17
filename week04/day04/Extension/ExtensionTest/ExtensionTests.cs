@@ -106,6 +106,18 @@ namespace ExtensionTests
             }
 
             [Test]
+            public void TestMedian_ListCountIs3_MedianIs24()
+            {
+                Assert.AreEqual(24, extension.Median(new List<int>() { 13, 79, 24 }));
+            }
+
+            [Test]
+            public void TestMedian_ListCountIs7_MedianIs6()
+            {
+                Assert.AreEqual(6, extension.Median(new List<int>() { 6, 2, 8, 9, 11, 4, 4 }));
+            }
+
+            [Test]
             public void TestIsVowel_a()
             {
                 Assert.True(extension.IsVowel('a'));
