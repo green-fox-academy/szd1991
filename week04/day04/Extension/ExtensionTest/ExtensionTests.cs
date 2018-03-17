@@ -152,6 +152,12 @@ namespace ExtensionTests
             {
                 Assert.AreEqual("lavagovopuvus", extension.Translate("lagopus"));
             }
+
+            [Test]
+            public void testTranslate_EzLehetetlen()
+            {
+                Assert.AreEqual("levehevetevetleven", extension.Translate("lehetetlen"));
+            }
         }
     }
 }
