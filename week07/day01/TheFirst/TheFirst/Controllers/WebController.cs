@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TheFirst.Models;
@@ -10,18 +9,17 @@ using TheFirst.Models;
 
 namespace TheFirst.Controllers
 {
-    [Route("api")]
-    public class RESTController : Controller
+    [Route("web")]
+    public class WebController : Controller
     {
         // GET: /<controller>/
 
         [Route("greeting")]
-        public IActionResult Greeting(string name = "Seedling")
+        public IActionResult Greeting(string name = "Lúzer")
         {
-            Greeting greet = new Greeting($"Hali, {name}!");
+            var greeting = new Greeting(name);
 
-            return new JsonResult(greet);
-
+            return View(greeting);
         }
     }
 }
