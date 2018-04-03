@@ -10,7 +10,7 @@ namespace TheFirst.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
+        //GET: /<controller>/
 
         [Route("hello")]
         public IActionResult Hello()
