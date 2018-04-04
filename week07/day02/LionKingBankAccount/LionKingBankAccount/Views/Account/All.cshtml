@@ -23,7 +23,7 @@
         }
     </style>
 </head>
-<body background="http://eskipaper.com/images/savannah-wallpaper-4.jpg">
+<body style="background-image: url(http://eskipaper.com/images/savannah-wallpaper-4.jpg)">
     <table style="width: 100%">
         <tr>
             <th>ID</th>
@@ -33,6 +33,7 @@
             <th>Currency</th>
             <th>King/Csíra</th>
             <th>Good/Bad</th>
+            <th>Donate</th>
         </tr>
 
         @foreach (var account in @Model)
@@ -61,6 +62,19 @@
             {
             <td style="text-align: center">😇</td>
             }
+
+            <td>
+                <form method="post">
+                        <div>
+                            <label for="Amount">Amount:</label>
+                            <input type="text" name="Amount" value="" />
+                        </div>
+                        <div>
+                            <label>&nbsp;</label>
+                            <input type="submit" value="Submit" class="submit" />
+                        </div>
+                </form>
+            </td>
         </tr>
         }
     </table>

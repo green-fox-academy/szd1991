@@ -30,7 +30,7 @@ namespace LionKingBankAccount
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Welcome to Chimpanzee Land's National NK Bank website! Please, type /accounts/all after url's host part to see something that is actually useful...");
             });
         }
     }
