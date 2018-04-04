@@ -25,7 +25,9 @@ namespace LionKingBankAccount.Controllers
         [Route("all")]
         public IActionResult All()
         {
-            return View(BankAccounts.Accounts);
+            var all = new BankAccounts();
+
+            return View(all);
         }
     }
 }

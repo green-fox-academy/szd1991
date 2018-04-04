@@ -27,7 +27,7 @@ namespace LionKingBankAccount.Models
         public string AnimalType { get => animalType; set => animalType = value; }
         public string Currency { get => currency; }
 
-        public string FormatCurrency()
+        public string FormatBalance()
         {
             return Balance.ToString("N2");
         }
