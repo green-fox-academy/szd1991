@@ -8,7 +8,7 @@
 <body>
     @foreach (var greeting in Model.Greetings)
     {
-        <h1 style="font-size: @(new Random().Next(24, 73))px">@greeting</h1>
+        <h1 style="font-size: @SoManyGreetings.Models.RandomNumber.RandomGenerator.Next(6, 73)px; color: rgb(@SoManyGreetings.Models.RandomNumber.RandomGenerator.Next(0, 256), @SoManyGreetings.Models.RandomNumber.RandomGenerator.Next(0, 256), @SoManyGreetings.Models.RandomNumber.RandomGenerator.Next(0, 256));">@greeting</h1>
     }
 </body>
 </html>
