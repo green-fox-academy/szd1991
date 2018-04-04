@@ -7,8 +7,8 @@ namespace LionKingBankAccount.Models
 {
     public class BankAccount
     {
-        // Name, Balance, AnimalType
-
+        private int id = 1;
+        private static int idCounter;
         private string name;
         private float balance;
         private string animalType;
@@ -16,6 +16,7 @@ namespace LionKingBankAccount.Models
 
         public BankAccount(string name, float balance, string animalType)
         {
+            id = idCounter++;
             this.name = name;
             this.balance = balance;
             this.animalType = animalType;
@@ -26,6 +27,7 @@ namespace LionKingBankAccount.Models
         public float Balance { get => balance; set => balance = value; }
         public string AnimalType { get => animalType; set => animalType = value; }
         public string Currency { get => currency; }
+        public int ID { get => id; }
 
         public string FormatBalance()
         {

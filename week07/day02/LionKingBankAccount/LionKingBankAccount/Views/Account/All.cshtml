@@ -27,6 +27,7 @@
 <body>
     <table style="width: 100%">
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Race</th>
             <th>Balance</th>
@@ -36,6 +37,7 @@
         @foreach (var account in Model.Accounts)
         {
         <tr>
+            <td>@account.ID</td>
             <td>@account.Name</td>
             <td>@account.AnimalType</td>
             <td style="text-align: right">@account.FormatBalance()</td>
