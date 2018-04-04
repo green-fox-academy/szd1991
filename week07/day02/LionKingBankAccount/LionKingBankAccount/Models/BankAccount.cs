@@ -10,14 +10,18 @@ namespace LionKingBankAccount.Models
         // Name, Balance, AnimalType
 
         private string name;
-        private float balance;
+        private int balance;
         private string animalType;
 
-        public BankAccount(string name, float balance, string animalType)
+        public BankAccount(string name, int balance, string animalType)
         {
             this.name = name;
             this.balance = balance;
             this.animalType = animalType;
         }
+
+        public string Name { get => name; set => name = value; }
+        public int Balance { get => balance; set => balance = value; }
+        public string AnimalType { get => animalType; set => animalType = value; }
     }
 }
