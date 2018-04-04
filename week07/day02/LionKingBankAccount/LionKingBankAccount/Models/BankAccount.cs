@@ -14,12 +14,12 @@ namespace LionKingBankAccount.Models
         private string animalType;
         private string currency;
 
-        public BankAccount(string name, float balance, string animalType, string currency)
+        public BankAccount(string name, float balance, string animalType)
         {
             this.name = name;
             this.balance = balance;
             this.animalType = animalType;
-            this.currency = currency;
+            currency = "¢himp฿one";
         }
 
         public string Name { get => name; set => name = value; }
