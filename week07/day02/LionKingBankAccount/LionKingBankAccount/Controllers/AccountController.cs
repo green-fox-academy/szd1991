@@ -17,7 +17,7 @@ namespace LionKingBankAccount.Controllers
         [Route("simba")]
         public IActionResult Simba()
         {
-            var simba = new BankAccount("Simba", 2000f, "Lion");
+            var simba = new BankAccount("Simba", 2000f, "Lion", true, false);
             
             return View(simba);
         }

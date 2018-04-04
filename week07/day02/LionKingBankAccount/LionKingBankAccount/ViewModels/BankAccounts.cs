@@ -10,13 +10,13 @@ namespace LionKingBankAccount.ViewModels
     {
         public List<BankAccount> Accounts = new List<BankAccount>
         {
-            new BankAccount("Simba", 2000, "Lion"),
-            new BankAccount("Scar", 1200.58f, "Lion"),
-            new BankAccount("Rafiki", 10256.98f, "Mandrill"),
-            new BankAccount("Ed", 0, "Hyena"),
-            new BankAccount("Pumbaa", 502, "Warthog"),
-            new BankAccount("Timon", 52, "Meerkat"),
-            new BankAccount("Zazu", 25688, "Hornbill")
+            new BankAccount("Simba", 2000, "Lion", true, false),
+            new BankAccount("Scar", 1200.58f, "Lion", false, true),
+            new BankAccount("Rafiki", 10256.98f, "Mandrill", false, false),
+            new BankAccount("Ed", 0, "Hyena", false, true),
+            new BankAccount("Pumbaa", 502, "Warthog", false, false),
+            new BankAccount("Timon", 52, "Meerkat", false, false),
+            new BankAccount("Zazu", 25688, "Hornbill", false, false)
         };
     }
 }

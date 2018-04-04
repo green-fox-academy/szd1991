@@ -32,6 +32,8 @@
             <th>Race</th>
             <th>Balance</th>
             <th>Currency</th>
+            <th>King/Csíra</th>
+            <th>Good/Bad</th>
         </tr>
 
         @foreach (var account in Model.Accounts)
@@ -42,6 +44,24 @@
             <td>@account.AnimalType</td>
             <td style="text-align: right">@account.FormatBalance()</td>
             <td>@account.Currency</td>
+            
+            @if (account.IsKing)
+            {
+            <td>👑</td>
+            }
+            else
+            {
+            <td>🌱</td>
+            }
+
+            @if (account.IsBad)
+            {
+            <td>😈</td>
+            }
+            else
+            {
+            <td>😇</td>
+            }
         </tr>
         }
     </table>

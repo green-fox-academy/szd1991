@@ -13,14 +13,18 @@ namespace LionKingBankAccount.Models
         private float balance;
         private string animalType;
         private string currency;
+        private bool isKing;
+        private bool isBad;
 
-        public BankAccount(string name, float balance, string animalType)
+        public BankAccount(string name, float balance, string animalType, bool isKing, bool isBad)
         {
             id = idCounter++;
             this.name = name;
             this.balance = balance;
             this.animalType = animalType;
             currency = "¢himp฿one";
+            this.isKing = isKing;
+            this.isBad = isBad;
         }
 
         public string Name { get => name; set => name = value; }
@@ -28,6 +32,8 @@ namespace LionKingBankAccount.Models
         public string AnimalType { get => animalType; set => animalType = value; }
         public string Currency { get => currency; }
         public int ID { get => id; }
+        public bool IsKing { get => isKing; }
+        public bool IsBad { get => isBad; }
 
         public string FormatBalance()
         {
