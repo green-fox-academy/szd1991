@@ -7,8 +7,8 @@ namespace LionKingBankAccount.Models
 {
     public class BankAccount
     {
-        private int id = 1;
-        private static int idCounter;
+        private int id;
+        private static int idCounter = 1;
         private string name;
         private float balance;
         private string animalType;

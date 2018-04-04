@@ -8,7 +8,7 @@ namespace LionKingBankAccount.ViewModels
 {
     public class BankAccounts
     {
-        public List<BankAccount> Accounts = new List<BankAccount>
+        public static List<BankAccount> Accounts = new List<BankAccount>
         {
             new BankAccount("Simba", 2000, "Lion", true, false),
             new BankAccount("Scar", 1200.58f, "Lion", false, true),

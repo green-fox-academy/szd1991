@@ -1,5 +1,4 @@
-﻿@model LionKingBankAccount.ViewModels.BankAccounts
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>LK Bank: all customers</title>
@@ -24,7 +23,7 @@
         }
     </style>
 </head>
-<body>
+<body background="http://eskipaper.com/images/savannah-wallpaper-4.jpg">
     <table style="width: 100%">
         <tr>
             <th>ID</th>
@@ -36,7 +35,7 @@
             <th>Good/Bad</th>
         </tr>
 
-        @foreach (var account in Model.Accounts)
+        @foreach (var account in @Model)
         {
         <tr>
             <td>@account.ID</td>
@@ -47,20 +46,20 @@
             
             @if (account.IsKing)
             {
-            <td>👑</td>
+            <td style="text-align: center">👑</td>
             }
             else
             {
-            <td>🌱</td>
+            <td style="text-align: center">🌱</td>
             }
 
             @if (account.IsBad)
             {
-            <td>😈</td>
+            <td style="text-align: center">😈</td>
             }
             else
             {
-            <td>😇</td>
+            <td style="text-align: center">😇</td>
             }
         </tr>
         }
