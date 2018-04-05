@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Counter.Controllers
 {
-    [Route("greatest-web-app-ever")]
     public class CounterController : Controller
     {
         private ICountable countable;
@@ -19,11 +18,19 @@ namespace Counter.Controllers
             this.countable = countable;
         }
 
-        // GET: /<controller>/
-        [Route("counter")]
+        [HttpGet]
+        [Route("")]
+        public IActionResult ShowCount()
+        {
+            return View(countable.getNumber());
+        }
+
+        [HttpPost]
+        [Route("Count")]
         public IActionResult Count()
         {
-            return View(countable.Count(1));
+            countable.Count();
+            return RedirectToAction("ShowCount");
         }
     }
 }

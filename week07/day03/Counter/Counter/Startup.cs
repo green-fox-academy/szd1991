@@ -23,7 +23,7 @@ namespace Counter
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<ICountable, CountByOne>();
+            services.AddSingleton<ICountable, CountByItself>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

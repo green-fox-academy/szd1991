@@ -7,6 +7,7 @@ namespace Counter.Models
 {
     public interface ICountable
     {
-        int Count(int counter);
+        void Count();
+        int getNumber();
     }
 }

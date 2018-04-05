@@ -7,9 +7,16 @@ namespace Counter.Models
 {
     public class CountByOne : ICountable
     {
-        public int Count(int counter)
+        public int Counter { get; set; } = 1;
+
+        public void Count()
         {
-            return counter++;
+            Counter++;
+        }
+
+        public int getNumber()
+        {
+            return  Counter;
         }
     }
 }
