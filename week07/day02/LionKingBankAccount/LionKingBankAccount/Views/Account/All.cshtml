@@ -4,8 +4,8 @@
     <title>LK Bank: all customers</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
-        table {
-            font-family: Courier New, Courier, monospace;
+        body {
+            font-family: 'Courier New';
         }
         th {
             border: 1.5px solid;
@@ -20,6 +20,16 @@
             background-color: khaki;
             font-size: 14px;
             color: darkslateblue;
+        }
+        td:hover {
+            background-color: sandybrown;
+        }
+        label, input {
+            border: 1.5px solid;
+            border-color: aquamarine;
+            background-color: azure;
+            font-size: 14px;
+            color: deepskyblue;
         }
     </style>
 </head>
@@ -71,5 +81,14 @@
         </tr>
         }
     </table>
+
+    <form action="/accounts/add-account" method="post">
+        <input type="text" name="Name" id="Name" placeholder="Owner of Account" />
+        <input type="number" name="Balance" id="Balance" placeholder="Starting Balance" />
+        <input type="text" name="AnimalType" id="AnimalType" placeholder="Race" />
+        <label>King: </label><input type="checkbox" name="IsKing" value="true" />
+        <label>Evil: </label><input type="checkbox" name="IsBad" value="true" />
+        <input type="submit" value="Add Customer" />
+    </form>
 </body>
 </html>

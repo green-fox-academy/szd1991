@@ -37,5 +37,13 @@ namespace LionKingBankAccount.Controllers
             BankAccounts.Accounts[BankAccounts.Accounts.FindIndex(acc => acc.ID == id)].IncreaseByDonation();
             return RedirectToAction("All");
         }
+
+        [HttpPost]
+        [Route("add-account")]
+        public IActionResult AddAccount (string Name, float Balance, string AnimalType, bool IsKing, bool IsBad)
+        {
+            BankAccounts.Accounts.Add(new BankAccount(Name, Balance, AnimalType, IsKing, IsBad));
+            return RedirectToAction("All");
+        }
     }
 }
