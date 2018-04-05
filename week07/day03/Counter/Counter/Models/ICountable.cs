@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Counter.Models
 {
-    interface ICountable
+    public interface ICountable
     {
         int Count(int counter);
     }
