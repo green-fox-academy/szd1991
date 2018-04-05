@@ -14,6 +14,7 @@ namespace LionKingBankAccount.Controllers
     public class AccountController : Controller
     {
         // GET: /<controller>/
+        [HttpGet]
         [Route("simba")]
         public IActionResult Simba()
         {
@@ -22,10 +23,19 @@ namespace LionKingBankAccount.Controllers
             return View(simba);
         }
 
+        [HttpGet]
         [Route("all")]
         public IActionResult All()
         {
             return View(BankAccounts.Accounts);
+        }
+
+        [HttpPost]
+        [Route("donate/{id}")]
+        public IActionResult Donate(int id)
+        {
+            BankAccounts.Accounts[BankAccounts.Accounts.FindIndex(acc => acc.ID == id)].IncreaseByDonation();
+            return RedirectToAction("All");
         }
     }
 }

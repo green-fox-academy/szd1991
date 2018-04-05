@@ -39,5 +39,19 @@ namespace LionKingBankAccount.Models
         {
             return Balance.ToString("N2");
         }
+
+        public float IncreaseByDonation()
+        {
+            if (IsKing)
+            {
+                Balance += 100;
+                return Balance;
+            }
+            else
+            {
+                Balance += 10;
+                return Balance;
+            }
+        }
     }
 }
