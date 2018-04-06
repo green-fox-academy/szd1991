@@ -1,0 +1,28 @@
+﻿@model int
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Greatest Counter Ever</title>
+    <style>
+        h1 {
+            font-size: 72px;
+            color: gold;
+            font-family: Georgia;
+        }
+        input {
+            font-size: 16px;
+            border: 8px groove orangered;
+            color: lightgoldenrodyellow;
+            background-color: darkorange;
+            font-family: 'Courier New';
+        }
+    </style>
+</head>
+<body>
+    <h1>@Model</h1>
+    <form method="post" action="/">
+        <input type="submit" value="Count!" />
+    </form>
+</body>
+</html>

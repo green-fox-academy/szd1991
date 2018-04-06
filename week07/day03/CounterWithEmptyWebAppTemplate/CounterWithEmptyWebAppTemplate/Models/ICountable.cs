@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace CounterWithEmptyWebAppTemplate.Models
 {
-    interface ICountable
+    public interface ICountable
     {
-        int Count();
+        void Count();
+
+        int GetNumber();
     }
 }

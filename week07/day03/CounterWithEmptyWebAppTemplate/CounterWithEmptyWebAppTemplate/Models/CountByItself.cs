@@ -9,9 +9,13 @@ namespace CounterWithEmptyWebAppTemplate.Models
     {
         public int Counter { get; set; } = 1;
 
-        public int Count()
+        public void Count()
         {
             Counter += Counter;
+        }
+
+        public int GetNumber()
+        {
             return Counter;
         }
     }
