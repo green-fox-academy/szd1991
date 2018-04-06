@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using LionKingBankAccount.Models;
+﻿using LionKingBankAccount.Models;
 using LionKingBankAccount.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace LionKingBankAccount.Controllers
 {
-    [Route("accounts")]
     public class AccountController : Controller
     {
-        // GET: /<controller>/
         [HttpGet]
         [Route("simba")]
         public IActionResult Simba()
@@ -24,7 +16,7 @@ namespace LionKingBankAccount.Controllers
         }
 
         [HttpGet]
-        [Route("all")]
+        [Route("/")]
         public IActionResult All()
         {
             return View(BankAccounts.Accounts);

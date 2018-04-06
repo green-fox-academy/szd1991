@@ -22,7 +22,7 @@ namespace LionKingBankAccount.Models
             this.name = name;
             this.balance = balance;
             this.animalType = animalType;
-            currency = "¢himp฿one";
+            currency = "¢himp";
             this.isKing = isKing;
             this.isBad = isBad;
         }

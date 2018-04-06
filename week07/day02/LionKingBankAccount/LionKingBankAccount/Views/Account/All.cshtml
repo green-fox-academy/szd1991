@@ -1,4 +1,6 @@
-﻿<!DOCTYPE HTML>
+﻿@model List<LionKingBankAccount.Models.BankAccount>
+
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>LK Bank: all customers</title>
@@ -11,25 +13,34 @@
             border: 1.5px solid;
             border-color: darkolivegreen;
             background-color: lightgreen;
-            font-size: 20px;
+            font-size: 36px;
             color: forestgreen;
         }
         td {
             border: 1px solid;
             border-color: darkgoldenrod;
             background-color: khaki;
-            font-size: 14px;
+            font-size: 30px;
             color: darkslateblue;
         }
         td:hover {
             background-color: sandybrown;
         }
-        label, input {
+        label {
             border: 1.5px solid;
             border-color: aquamarine;
             background-color: azure;
-            font-size: 14px;
+            font-size: 30px;
             color: deepskyblue;
+            font-family: Chiller;
+        }
+        input {
+            border: 1.5px solid;
+            border-color: aquamarine;
+            background-color: azure;
+            font-size: 30px;
+            color: deepskyblue;
+            font-family: Chiller;
         }
     </style>
 </head>
@@ -46,7 +57,7 @@
             <th>Donate</th>
         </tr>
 
-        @foreach (var account in @Model)
+        @foreach (var account in Model)
         {
         <tr>
             <td>@account.ID</td>
@@ -74,7 +85,7 @@
             }
 
             <td>
-                <form action="/accounts/donate/@account.ID" method="post">
+                <form action="/donate/@account.ID" method="post">
                         <input type="submit" value="Praise @account.Name!" />
                 </form>
             </td>
@@ -82,7 +93,7 @@
         }
     </table>
 
-    <form action="/accounts/add-account" method="post">
+    <form action="/add-account" method="post">
         <input type="text" name="Name" id="Name" placeholder="Owner of Account" />
         <input type="number" name="Balance" id="Balance" placeholder="Starting Balance" />
         <input type="text" name="AnimalType" id="AnimalType" placeholder="Race" />
