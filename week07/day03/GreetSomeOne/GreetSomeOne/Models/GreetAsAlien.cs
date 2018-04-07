@@ -22,7 +22,7 @@ namespace GreetSomeOne.Models
 
         public string Greet()
         {
-            return $"Greetings, earthling {Name}";
+            return $"Greetings, earthling {Name}...";
         }
 
     }
