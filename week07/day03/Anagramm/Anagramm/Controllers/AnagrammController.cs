@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Anagramm.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,22 +11,26 @@ namespace Anagramm.Controllers
 {
     public class AnagrammController : Controller
     {
+        IAnagram anagram;
+
+        public AnagrammController(IAnagram anagram)
+        {
+            this.anagram = anagram;
+        }
+
         [HttpGet("/")]
         public IActionResult Input()
         {
             return View();
         }
 
-        [HttpPost("/analyze")]
-        public IActionResult Analyze(string firstWord, string secondWord)
+        [HttpPost("/result")]
+        public IActionResult Result([FromForm] string firstWord, [FromForm] string secondWord)
         {
+            anagram.SetFirstWord(firstWord);
+            anagram.SetSecondWord(secondWord);
 
-        }
-
-        [HttpGet("/result")]
-        public IActionResult Result()
-        {
-
+            return View(anagram);
         }
     }
 }

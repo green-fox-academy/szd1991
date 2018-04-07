@@ -5,7 +5,16 @@ using System.Threading.Tasks;
 
 namespace Anagramm.Models
 {
-    interface IAnagram
+    public interface IAnagram
     {
+        string SetFirstWord(string firstInput);
+
+        string SetSecondWord(string secondInput);
+
+        string ModifyFirstWordToAnalyze();
+
+        string ModifySecondWordToAnalyze();
+
+        bool Analyze();
     }
 }

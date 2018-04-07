@@ -1,0 +1,19 @@
+﻿@model Anagramm.Models.IAnagram
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Anagram Analyzer Result</title>
+</head>
+<body>
+    @if (Model.Analyze())
+    {
+        <h1>Your words are anagrams!!</h1>
+    }
+    else
+    {
+        <h1>Your words are not anagrams...</h1>
+    }
+</body>
+</html>
