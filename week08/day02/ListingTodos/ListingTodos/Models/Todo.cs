@@ -10,7 +10,7 @@ namespace ListingTodos.Models
     {
         public long Id { get; set; }
         public string Title { get; set; }
-        public bool IsUrgent { get; set; } = false;
-        public bool IsDone { get; set; } = false;
+        public bool IsUrgent { get; set; }
+        public bool IsDone { get; set; }
     }
 }

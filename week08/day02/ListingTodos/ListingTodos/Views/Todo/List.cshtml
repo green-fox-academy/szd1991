@@ -1,0 +1,29 @@
+﻿
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todos for today:</h1>
+    <table style="width: 100%">
+        <tr>
+            <th>#</th>
+            <th>todo</th>
+            <th>urgent</th>
+            <th>done</th>
+        </tr>
+        @foreach (var todo in Model)
+        {
+        <tr>
+            <td>@todo.Id</td>
+            <td>@todo.Title</td>
+            <td>@todo.IsUrgent</td>
+            <td>@todo.IsDone</td>
+        </tr>
+        }
+    </table>
+</body>
+</html>
