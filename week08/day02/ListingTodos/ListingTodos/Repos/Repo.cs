@@ -22,7 +22,7 @@ namespace ListingTodos.Models
 
         public List<Todo> Read()
         {
-            return context.Todos.ToList<Todo>();
+            return context.Todos.ToList();
         }
 
         public void Update(Todo todo)

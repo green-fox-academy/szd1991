@@ -18,7 +18,7 @@ namespace ListingTodos.Controllers
             this.repo = repo;
         }
 
-        [Route("/list")]
+        [Route("/")]
         public IActionResult List()
         {
             repo.Create("Buy cloudy apple juice");
