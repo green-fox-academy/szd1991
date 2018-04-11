@@ -18,12 +18,38 @@ namespace ListingTodos.Controllers
             this.repo = repo;
         }
 
+        [HttpGet]
         [Route("/")]
         public IActionResult List()
         {
-            repo.Create("Buy cloudy apple juice");
-
             return View(repo.Read());
+        }
+
+        [HttpPost]
+        [Route("/add")]
+        public IActionResult Add([FromForm] string title, [FromForm] bool isUrgent, [FromForm] bool isDone)
+        {
+            repo.Create(title, isUrgent, isDone);
+
+            return RedirectToAction("list");
+        }
+
+        [HttpPost]
+        [Route("/update/{id}")]
+        public IActionResult Update(long id, [FromForm] string newTitle, [FromForm] bool isUrgent, [FromForm] bool isDone)
+        {
+            repo.Update(id, newTitle, isUrgent, isDone);
+
+            return RedirectToAction("list");
+        }
+
+        [HttpPost]
+        [Route("/remove/{id}")]
+        public IActionResult Remove(long id)
+        {
+            repo.Delete(id);
+
+            return RedirectToAction("list");
         }
     }
 }

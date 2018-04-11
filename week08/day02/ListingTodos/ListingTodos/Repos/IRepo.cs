@@ -7,9 +7,9 @@ namespace ListingTodos.Models
 {
     public interface IRepo
     {
-        void Create(string title);
+        void Create(string title, bool isUrgent, bool isDone);
         List<Todo> Read();
-        void Update(Todo todo);
-        void Delete(Todo todo);
+        void Update(long id, string newTitle, bool isUrgent, bool isDone);
+        void Delete(long id);
     }
 }

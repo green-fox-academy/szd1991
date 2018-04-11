@@ -15,6 +15,7 @@
             <th>urgent</th>
             <th>done</th>
             <th>modify</th>
+            <th>remove</th>
         </tr>
         @foreach (var todo in Model)
         {
@@ -24,15 +25,22 @@
             <td>@todo.IsUrgent</td>
             <td>@todo.IsDone</td>
             <td>
-                <form method="post" action="">
-                    <input type="text" name="title" placeholder="Change task..." />
+                <form method="post" action="/update/@todo.Id">
+                    <input type="text" name="newTitle" placeholder="Rename task..." />
+                    <label>Urgent? </label><input type="checkbox" name="isUrgent" value="true" />
+                    <label>Done yet? </label><input type="checkbox" name="isDone" value="true" />
                     <input type="submit" value="Update" />
+                </form>
+            </td>
+            <td>
+                <form method="post" action="/remove/@todo.Id">
+                    <input type="submit" value="Remove" />
                 </form>
             </td>
         </tr>
         }
     </table>
-    <form method="post" action="">
+    <form method="post" action="/add">
         <input type="text" name="title" placeholder="New todo..." />
         <label>Priority: </label><input type="checkbox" name="isUrgent" value="true" />
         <label>Done: </label><input type="checkbox" name="isDone" value="true" />
