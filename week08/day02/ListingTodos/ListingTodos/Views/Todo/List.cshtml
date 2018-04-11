@@ -11,21 +11,21 @@
     <table style="width: 100%">
         <tr>
             <th>#</th>
-            <th>todo</th>
-            <th>urgent</th>
-            <th>done</th>
-            <th>modify</th>
-            <th>remove</th>
+            <th>TODO</th>
+            <th>PRIORITY</th>
+            <th>DONE</th>
+            <th>MODIFY</th>
+            <th>REMOVE</th>
         </tr>
-        @foreach (var todo in Model)
+        @for (int i = 0; i < Model.Count; i++)
         {
         <tr>
-            <td>@todo.Id</td>
-            <td>@todo.Title</td>
-            <td>@todo.IsUrgent</td>
-            <td>@todo.IsDone</td>
+            <td>@(i + 1)</td>
+            <td>@Model[i].Title</td>
+            <td>@Model[i].IsUrgent</td>
+            <td>@Model[i].IsDone</td>
             <td>
-                <form method="post" action="/update/@todo.Id">
+                <form method="post" action="/update/@Model[i].Id">
                     <input type="text" name="newTitle" placeholder="Rename task..." />
                     <label>Urgent? </label><input type="checkbox" name="isUrgent" value="true" />
                     <label>Done yet? </label><input type="checkbox" name="isDone" value="true" />
@@ -33,7 +33,7 @@
                 </form>
             </td>
             <td>
-                <form method="post" action="/remove/@todo.Id">
+                <form method="post" action="/remove/@Model[i].Id">
                     <input type="submit" value="Remove" />
                 </form>
             </td>
