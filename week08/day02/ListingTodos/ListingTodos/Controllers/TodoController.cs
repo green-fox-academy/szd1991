@@ -36,9 +36,36 @@ namespace ListingTodos.Controllers
 
         [HttpPost]
         [Route("/update/{id}")]
-        public IActionResult Update([FromRoute] long id, [FromForm] string newTitle, [FromForm] bool isUrgent, [FromForm] bool isDone)
+        public IActionResult FullUpdate([FromRoute] long id, [FromForm] string newTitle, [FromForm] bool isUrgent, [FromForm] bool isDone)
         {
-            repo.Update(id, newTitle, isUrgent, isDone);
+            repo.FullUpdate(id, newTitle, isUrgent, isDone);
+
+            return RedirectToAction("list");
+        }
+
+        [HttpPost]
+        [Route("/update/{id}-done")]
+        public IActionResult UpdateDoneState([FromRoute] long id, [FromForm] bool isDone)
+        {
+            repo.UpdateDoneState(id, isDone);
+
+            return RedirectToAction("list");
+        }
+
+        [HttpPost]
+        [Route("/update/{id}-urgency")]
+        public IActionResult UpdateUrgentState([FromRoute] long id, [FromForm] bool isUrgent)
+        {
+            repo.UpdateUrgentState(id, isUrgent);
+
+            return RedirectToAction("list");
+        }
+
+        [HttpPost]
+        [Route("/update/{id}-rename")]
+        public IActionResult UpdateTitle([FromRoute] long id, [FromForm] string newTitle)
+        {
+            repo.UpdateTitle(id, newTitle);
 
             return RedirectToAction("list");
         }
@@ -54,9 +81,9 @@ namespace ListingTodos.Controllers
 
         [HttpGet]
         [Route("/search")]
-        public IActionResult Search([FromQuery] string keyword)
+        public IActionResult Search([FromQuery] string query)
         {
-            return View(repo.Search(keyword));
+            return View(repo.Search(query));
         }
     }
 }
