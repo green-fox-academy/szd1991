@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<ListingTodos.Models.Todo>
+
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -9,13 +11,7 @@
 </head>
 <body>
 
-    <h1>Todos for life:</h1>
-
-    <form method="get" action="/search">
-        <input type="text" name="keyword" />
-        <input type="submit" value="Search" />
-    </form>
-
+    <h1>Todos matching your search</h1>
     <table class="table table-sm table-striped table-borderless table-dark">
         <tr>
             <th scope="col">#</th>
@@ -87,12 +83,7 @@
             }
         }
     </table>
-    <form method="post" action="/add">
-        <input type="text" name="title" placeholder="New todo..." />
-        <label>Priority: </label><input type="checkbox" name="isUrgent" value="true" />
-        <label>Done: </label><input type="checkbox" name="isDone" value="true" />
-        <input type="submit" class="btn btn-success" value="Add" />
-    </form>
+    <a href="/" class="badge badge-dark">Home</a>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>

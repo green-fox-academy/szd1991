@@ -36,7 +36,7 @@ namespace ListingTodos.Controllers
 
         [HttpPost]
         [Route("/update/{id}")]
-        public IActionResult Update(long id, [FromForm] string newTitle, [FromForm] bool isUrgent, [FromForm] bool isDone)
+        public IActionResult Update([FromRoute] long id, [FromForm] string newTitle, [FromForm] bool isUrgent, [FromForm] bool isDone)
         {
             repo.Update(id, newTitle, isUrgent, isDone);
 
@@ -45,11 +45,18 @@ namespace ListingTodos.Controllers
 
         [HttpPost]
         [Route("/remove/{id}")]
-        public IActionResult Remove(long id)
+        public IActionResult Remove([FromRoute] long id)
         {
             repo.Delete(id);
 
             return RedirectToAction("list");
+        }
+
+        [HttpGet]
+        [Route("/search")]
+        public IActionResult Search([FromQuery] string keyword)
+        {
+            return View(repo.Search(keyword));
         }
     }
 }

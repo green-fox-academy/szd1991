@@ -11,5 +11,6 @@ namespace ListingTodos.Models
         List<Todo> Read();
         void Update(long id, string newTitle, bool isUrgent, bool isDone);
         void Delete(long id);
+        List<Todo> Search(string keyword);
     }
 }

@@ -27,7 +27,7 @@ namespace ListingTodos.Models
 
         public List<Todo> Read()
         {
-            return context.Todos.ToList<Todo>();
+            return context.Todos.ToList();
         }
 
         public void Update(long id, string newTitle, bool isUrgent, bool isDone)
@@ -55,6 +55,11 @@ namespace ListingTodos.Models
             context.Remove(todo);
 
             context.SaveChanges();
+        }
+
+        public List<Todo> Search(string keyword)
+        {
+            return context.Todos.Where(td => td.Title.Contains(keyword)).ToList();
         }
     }
 }
