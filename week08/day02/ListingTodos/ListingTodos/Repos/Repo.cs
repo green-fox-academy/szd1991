@@ -14,12 +14,11 @@ namespace ListingTodos.Models
             this.context = context;
         }
 
-        public void Create(string title, bool isUrgent, bool isDone)
+        public void Create(string title, bool isUrgent)
         {
             context.Add(new Todo
             {   Title = title,
-                IsUrgent = isUrgent,
-                IsDone = isDone
+                IsUrgent = isUrgent
             });
 
             context.SaveChanges();

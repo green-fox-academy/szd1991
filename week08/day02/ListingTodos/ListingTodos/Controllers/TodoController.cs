@@ -27,9 +27,9 @@ namespace ListingTodos.Controllers
 
         [HttpPost]
         [Route("/add")]
-        public IActionResult Add([FromForm] string title, [FromForm] bool isUrgent, [FromForm] bool isDone)
+        public IActionResult Add([FromForm] string title, [FromForm] bool isUrgent)
         {
-            repo.Create(title, isUrgent, isDone);
+            repo.Create(title, isUrgent);
 
             return RedirectToAction("list");
         }

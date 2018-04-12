@@ -8,19 +8,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body>
-    
-    <h1>Todos for life:</h1>
-
-    <form method="get" action="/search">
-        <input type="text" name="query" />
-        <input type="submit" value="Search" />
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">TODOS 4 LIFE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link" href="#">Pricing</a>
+                <a class="nav-item nav-link disabled" href="#">Disabled</a>
+            </div>
+        </div>
+    </nav>
+    <form method="post" action="/add">
+        <input type="text" name="title" placeholder="new todo..." />
+        <label>priority: </label><input type="checkbox" name="isUrgent" value="true" />
+        <input type="submit" class="btn btn-success" value="Add" />
     </form>
-
+    <br />
     <table class="table table-sm @*table-striped table-borderless*@ table-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">TODO</th>
-            <th scope="col">MODIFY</th>
+            <th scope="col">RENAME</th>
+            <th scope="col">SWITCH PRIORITY</th>
+            <th scope="col">MARK STATE</th>
             <th scope="col">REMOVE</th>
         </tr>
         @for (int i = 0; i < Model.Count; i++)
@@ -31,16 +45,49 @@
                     <td scope="row">@(i + 1)</td>
                     <td scope="row">@Model[i].Title</td>
                     <td scope="row">
-                        <form method="post" action="/update/@Model[i].Id">
-                            <input type="text" name="newTitle" placeholder="Rename task..." />
-                            <label>Urgent? </label><input type="checkbox" name="isUrgent" value="true" />
-                            <label>Done yet? </label><input type="checkbox" name="isDone" value="true" />
-                            <input type="submit" class="btn btn-primary btn-sm" value="Update" />
+                        <form method="post" action="/update/@Model[i].Id-rename">
+                            <input type="text" name="newTitle" placeholder="change description..." />
+                            <input type="submit" class="btn btn-light btn-sm" value="rename" />
                         </form>
                     </td>
+
+                    @if (Model[i].IsUrgent == false)
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-urgency">
+                                <input type="submit" class="btn btn-warning btn-sm" value="to high" style="color: white" />
+                            </form>
+                        </td>
+                    }
+                    else
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-urgency">
+                                <input type="submit" class="btn btn-secondary btn-sm" value="to low" />
+                            </form>
+                        </td>
+                    }
+
+                    @if (Model[i].IsDone == false)
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-done">
+                                <input type="submit" class="btn btn-success btn-sm" value="as done" />
+                            </form>
+                        </td>
+                    }
+                    else
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-done">
+                                <input type="submit" class="btn btn-secondary btn-sm" value="as undone" />
+                            </form>
+                        </td>
+                    }
+
                     <td scope="row">
                         <form method="post" action="/remove/@Model[i].Id">
-                            <input type="submit" class="btn btn-danger btn-sm" value="Remove" />
+                            <input type="submit" class="btn btn-danger btn-sm" value="remove" />
                         </form>
                     </td>
                 </tr>
@@ -51,16 +98,49 @@
                     <td scope="row">@(i + 1)</td>
                     <td scope="row">@Model[i].Title</td>
                     <td scope="row">
-                        <form method="post" action="/update/@Model[i].Id">
-                            <input type="text" name="newTitle" placeholder="Rename task..." />
-                            <label>Urgent? </label><input type="checkbox" name="isUrgent" value="true" />
-                            <label>Done yet? </label><input type="checkbox" name="isDone" value="true" />
-                            <input type="submit" class="btn btn-primary btn-sm" value="Update" />
+                        <form method="post" action="/update/@Model[i].Id-rename">
+                            <input class="form-control form-control-sm" type="text" name="newTitle" placeholder="change description..." />
+                            <input type="submit" class="btn btn-light btn-sm" value="rename" />
                         </form>
                     </td>
+
+                    @if (Model[i].IsUrgent == false)
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-urgency">
+                                <input type="submit" class="btn btn-warning btn-sm" value="to high" style="color: white" />
+                            </form>
+                        </td>
+                    }
+                    else
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-urgency">
+                                <input type="submit" class="btn btn-secondary btn-sm" value="to low" />
+                            </form>
+                        </td>
+                    }
+
+                    @if (Model[i].IsDone == false)
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-done">
+                                <input type="submit" class="btn btn-success btn-sm" value="as done" />
+                            </form>
+                        </td>
+                    }
+                    else
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-done">
+                                <input type="submit" class="btn btn-secondary btn-sm" value="as undone" />
+                            </form>
+                        </td>
+                    }
+
                     <td scope="row">
                         <form method="post" action="/remove/@Model[i].Id">
-                            <input type="submit" class="btn btn-danger btn-sm" value="Remove" />
+                            <input type="submit" class="btn btn-danger btn-sm" value="remove" />
                         </form>
                     </td>
                 </tr>
@@ -71,28 +151,55 @@
                     <td scope="row">@(i + 1)</td>
                     <td scope="row">@Model[i].Title</td>
                     <td scope="row">
-                        <form method="post" action="/update/@Model[i].Id">
-                            <input type="text" name="newTitle" placeholder="Rename task..." />
-                            <label>Urgent? </label><input type="checkbox" name="isUrgent" value="true" />
-                            <label>Done yet? </label><input type="checkbox" name="isDone" value="true" />
-                            <input type="submit" class="btn btn-primary btn-sm" value="Update" />
+                        <form method="post" action="/update/@Model[i].Id-rename">
+                            <input type="text" name="newTitle" placeholder="change description..." />
+                            <input type="submit" class="btn btn-light btn-sm" value="rename" />
                         </form>
                     </td>
+
+                    @if (Model[i].IsUrgent == false)
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-urgency">
+                                <input type="submit" class="btn btn-warning btn-sm" value="to high" style="color: white" />
+                            </form>
+                        </td>
+                    }
+                    else
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-urgency">
+                                <input type="submit" class="btn btn-secondary btn-sm" value="to low" />
+                            </form>
+                        </td>
+                    }
+
+                    @if (Model[i].IsDone == false)
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-done">
+                                <input type="submit" class="btn btn-success btn-sm" value="as done" />
+                            </form>
+                        </td>
+                    }
+                    else
+                    {
+                        <td scope="row">
+                            <form method="post" action="/update/@Model[i].Id-done">
+                                <input type="submit" class="btn btn-secondary btn-sm" value="as undone" />
+                            </form>
+                        </td>
+                    }
+
                     <td scope="row">
                         <form method="post" action="/remove/@Model[i].Id">
-                            <input type="submit" class="btn btn-danger btn-sm" value="Remove" />
+                            <input type="submit" class="btn btn-danger btn-sm" value="remove" />
                         </form>
                     </td>
                 </tr>
             }
         }
     </table>
-    <form method="post" action="/add">
-        <input type="text" name="title" placeholder="New todo..." />
-        <label>Priority: </label><input type="checkbox" name="isUrgent" value="true" />
-        <label>Done: </label><input type="checkbox" name="isDone" value="true" />
-        <input type="submit" class="btn btn-success" value="Add" />
-    </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
