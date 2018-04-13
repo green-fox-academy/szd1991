@@ -10,6 +10,6 @@ namespace TodosForLife.Models
         public long Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public List<Todo> Todos { get; set; }
+        public List<Todo> Todos { get; set; } = new List<Todo>();
     }
 }
