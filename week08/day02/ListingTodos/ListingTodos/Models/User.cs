@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace ListingTodos.Models
 {
-    public class Todo
+    public class User
     {
         public long Id { get; set; }
-        public string Title { get; set; }
-        public bool IsUrgent { get; set; }
-        public bool IsDone { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public List<Todo> Todos { get; set; }
     }
 }
