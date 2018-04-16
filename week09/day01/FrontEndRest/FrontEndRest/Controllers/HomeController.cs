@@ -55,7 +55,8 @@ namespace FrontEndRest.Controllers
         [Route("/appenda/{appendable}")]
         public IActionResult AppendA(string appendable)
         {
-            return Json(new { appended = appendable + "a" });
+            string appendA = appendable + "a";
+            return Json(new { appended = appendA });
         }
 
         [HttpGet]
@@ -86,6 +87,13 @@ namespace FrontEndRest.Controllers
                 return Json(new { result = Until.FactorUntil() });
             }
             return NotFound();
+        }
+
+        [HttpPost]
+        [Route("/arrays")]
+        public IActionResult Arrays(string what, int[] numbers)
+        {
+
         }
     }
 }
