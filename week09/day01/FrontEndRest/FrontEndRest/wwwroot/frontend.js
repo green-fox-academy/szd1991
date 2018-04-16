@@ -85,7 +85,7 @@ $("#dountil").on("click", function () {
     }).error(function (err) {
         handle("#dountil_response", "OK - without what");
     });
-    $.post(window.baseUrl + "/dountil/sum", {}).done(function (data) {
+    $.post({ url: window.baseUrl + "/dountil/sum", data: JSON.stringify({}), contentType: 'application/json; charset=utf-8' }).done(function (data) {
         if ("error" in data && data["error"] == "Please provide a number!") {
             handle("#dountil_response", "OK - without number");
         } else {
