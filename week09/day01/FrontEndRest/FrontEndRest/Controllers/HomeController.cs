@@ -17,5 +17,19 @@ namespace FrontEndRest.Controllers
         {
             return File(@"~\index.html", "text/html");
         }
+
+        [HttpGet]
+        [Route("/doubling")]
+        public IActionResult Doubling(int? input)
+        {
+            if (input == null)
+            {
+                return Json(new { error = "Please provide an input" });
+            }
+            else
+            {
+                return Json(new { recieved = input, result = input * 2 });
+            }
+        }
     }
 }
