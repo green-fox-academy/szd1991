@@ -24,11 +24,11 @@ namespace FrontEndRest.Controllers
         {
             if (input == null)
             {
-                return Json(new { error = "Please provide an input" });
+                return Json(new { error = "Please provide an input!" });
             }
             else
             {
-                return Json(new { recieved = input, result = input * 2 });
+                return Json(new { received = input, result = input * 2 });
             }
         }
 
@@ -36,14 +36,32 @@ namespace FrontEndRest.Controllers
         [Route("/greeter")]
         public IActionResult Greeter(string name, string title)
         {
-            if (name == null || title == null)
+            if (name == null)
             {
-                return Json(new { error = "Please provide a name and a title!" });
+                return Json(new { error = "Please provide a name!" });
+            }
+            if (title == null)
+            {
+                return Json(new { error = "Please provide a title!" });
             }
             else
             {
-                return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!!" });
+                return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!" });
             }
+        }
+
+        [HttpGet]
+        [Route("/appenda/{appendable}")]
+        public IActionResult AppendA(string appendable)
+        {
+            return Json(new { appended = appendable + "a" });
+        }
+
+        [HttpGet]
+        [Route("/appenda/")]
+        public IActionResult AppendA()
+        {
+            return NotFound();
         }
     }
 }
