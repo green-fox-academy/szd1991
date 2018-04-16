@@ -93,35 +93,20 @@ namespace FrontEndRest.Controllers
         [Route("/arrays")]
         public IActionResult Arrays([FromBody] ArrayHandlerTDO arrayHandler)
         {
-            if (arrayHandler.What == null)
+            if (arrayHandler.What == null || arrayHandler.Numbers == null)
             {
-                return Json(new { error = "Please provide what to do with the numbers!" });
+                return Json(new { error = "Please provide what to do with the numbers and/or the numbers themselves!" });
             }
             else if (arrayHandler.What == "sum")
             {
-                if (arrayHandler.Numbers == null)
-                {
-                    return Json(new { error = "Please provide numbers!" });
-                }
-
                 return Json(new { result = arrayHandler.Sum() });
             }
             else if (arrayHandler.What == "multiply")
             {
-                if (arrayHandler.Numbers == null)
-                {
-                    return Json(new { error = "Please provide numbers!" });
-                }
-
                 return Json(new { result = arrayHandler.Multiply() });
             }
             else if (arrayHandler.What == "double")
             {
-                if (arrayHandler.Numbers == null)
-                {
-                    return Json(new { error = "Please provide numbers!" });
-                }
-
                 return Json(new { result = arrayHandler.Double() });
             }
             return NotFound();
