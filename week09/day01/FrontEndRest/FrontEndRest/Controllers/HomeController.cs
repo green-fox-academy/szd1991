@@ -31,5 +31,19 @@ namespace FrontEndRest.Controllers
                 return Json(new { recieved = input, result = input * 2 });
             }
         }
+
+        [HttpGet]
+        [Route("/greeter")]
+        public IActionResult Greeter(string name, string title)
+        {
+            if (name == null || title == null)
+            {
+                return Json(new { error = "Please provide a name and a title!" });
+            }
+            else
+            {
+                return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!!" });
+            }
+        }
     }
 }
