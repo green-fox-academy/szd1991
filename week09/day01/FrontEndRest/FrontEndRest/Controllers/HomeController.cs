@@ -91,9 +91,25 @@ namespace FrontEndRest.Controllers
 
         [HttpPost]
         [Route("/arrays")]
-        public IActionResult Arrays(string what, int[] numbers)
+        public IActionResult Arrays([FromBody] ArrayHandlerTDO arrayHandler)
         {
-
+            if (arrayHandler.What == null || arrayHandler.Numbers == null)
+            {
+                return Json(new { error = "Please provide what to do with the numbers!" });
+            }
+            else if (arrayHandler.What == "sum")
+            {
+                return Json(new { result = arrayHandler.Sum() });
+            }
+            else if (arrayHandler.What == "multiply")
+            {
+                return Json(new { result = arrayHandler.Multiply() });
+            }
+            else if (arrayHandler.What == "double")
+            {
+                return Json(new { result = arrayHandler.Double() });
+            }
+            return NotFound();
         }
     }
 }
