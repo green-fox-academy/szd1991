@@ -1,21 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FrontEndRest.Models;
+using FrontEndRest.Repositories;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace FrontEndRest.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
+        private ILogRepository logRepo;
+
+        public HomeController(ILogRepository logRepo)
+        {
+            this.logRepo = logRepo;
+        }
+
         [HttpGet]
         [Route("/")]
         public IActionResult Index()
         {
+            logRepo.Archive("/", "index.html");
+
             return File(@"~\index.html", "text/html");
         }
 
@@ -23,6 +27,8 @@ namespace FrontEndRest.Controllers
         [Route("/doubling")]
         public IActionResult Doubling(int? input)
         {
+            logRepo.Archive("/doubling", $"input={input}");
+
             if (input == null)
             {
                 return Json(new { error = "Please provide an input!" });
@@ -37,6 +43,8 @@ namespace FrontEndRest.Controllers
         [Route("/greeter")]
         public IActionResult Greeter(string name, string title)
         {
+            logRepo.Archive("/greeter", $"name={name}&title={title}");
+
             if (name == null)
             {
                 return Json(new { error = "Please provide a name!" });
@@ -55,6 +63,8 @@ namespace FrontEndRest.Controllers
         [Route("/appenda/{appendable}")]
         public IActionResult AppendA(string appendable)
         {
+            logRepo.Archive("/appenda/{appendable}", $"appendable={appendable}");
+
             string appendA = appendable + "a";
             return Json(new { appended = appendA });
         }
@@ -63,6 +73,8 @@ namespace FrontEndRest.Controllers
         [Route("/appenda/")]
         public IActionResult AppendA()
         {
+            logRepo.Archive("/appenda/", "");
+
             return NotFound();
         }
 
@@ -70,6 +82,8 @@ namespace FrontEndRest.Controllers
         [Route("/dountil/{what}")]
         public IActionResult DoUntil(string what, [FromBody] DoUntilDTO Until)
         {
+            logRepo.Archive("/dountil/{what}", $"what={what}, until={Until.Until}");
+
             if (what == "sum")
             {
                 if (Until.Until == null)
@@ -93,6 +107,8 @@ namespace FrontEndRest.Controllers
         [Route("/arrays")]
         public IActionResult Arrays([FromBody] ArrayHandlerTDO arrayHandler)
         {
+            logRepo.Archive("/arrays", $"what={arrayHandler.What}, array={arrayHandler.NumbersToString()}");
+
             if (arrayHandler.What == null || arrayHandler.Numbers == null)
             {
                 return Json(new { error = "Please provide what to do with the numbers and/or the numbers themselves!" });
@@ -110,6 +126,13 @@ namespace FrontEndRest.Controllers
                 return Json(new { result = arrayHandler.Double() });
             }
             return NotFound();
+        }
+
+        [HttpGet]
+        [Route("/log")]
+        public IActionResult Log()
+        {
+            return Json(new { entries = logRepo.ReadAll() });
         }
     }
 }

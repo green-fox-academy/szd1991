@@ -45,5 +45,24 @@ namespace FrontEndRest.Models
 
             return doubles;
         }
+
+        public string NumbersToString()
+        {
+            string numbers = "{";
+
+            for (int i = 0; i < Numbers.Length; i++)
+            {
+                if (i == Numbers.Length - 1)
+                {
+                    numbers += Numbers[i] + "}";
+                }
+                else
+                {
+                    numbers += Numbers[i] + ",";
+                }
+            }
+
+            return numbers;
+        }
     }
 }

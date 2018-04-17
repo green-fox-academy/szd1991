@@ -8,7 +8,7 @@ namespace FrontEndRest.Repositories
 {
     public interface ILogRepository
     {
-        void Create(Log log);
-        List<Log> Read();
+        void Archive(string endpoint, string data);
+        List<Log> ReadAll();
     }
 }

@@ -11,7 +11,7 @@ namespace FrontEndRest.Entities
     {
         public DbSet<Log> Logs { get; set; }
 
-        public LogContext(DbContextOptions options) : base(options)
+        public LogContext(DbContextOptions<LogContext> options) : base(options)
         {
         }
     }

@@ -16,13 +16,17 @@ namespace FrontEndRest.Repositories
             this.context = context;
         }
 
-        public void Create(Log log)
+        public void Archive(string endpoint, string data)
         {
-            context.Add(log);
+            context.Add(new Log {
+                Endpoint = endpoint,
+                Data = data,
+                CreatedAt = DateTime.Now
+            });
             context.SaveChanges();
         }
 
-        public List<Log> Read()
+        public List<Log> ReadAll()
         {
             return context.Logs.ToList();
         }
