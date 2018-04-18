@@ -10,7 +10,7 @@ namespace FakeCloneOfAFakeReddit.Models
         public long? Id { get; set; }
         public string Title { get; set; }
         public string Url { get; set; }
-        public DateTime Timestamp { get; } = DateTime.UtcNow;
+        public DateTime Timestamp { get; } = DateTime.Now;
         public int Score { get; set; }
     }
 }
