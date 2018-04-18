@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FakeCloneOfAFakeReddit.Models;
 using FakeCloneOfAFakeReddit.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,10 +26,10 @@ namespace FakeCloneOfAFakeReddit.Controllers
 
         [HttpPost]
         [Route("/posts")]
-        public IActionResult Post([FromBody] string title, [FromBody] string url)
+        public IActionResult Post([FromBody] Post post)
         {
-            postRepo.CreatePost(title, url);
-            return Ok();
+            postRepo.CreatePost(post);
+            return new OkObjectResult(post);
         }
     }
 }

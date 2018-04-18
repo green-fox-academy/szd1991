@@ -10,7 +10,7 @@ namespace FakeCloneOfAFakeReddit.Repositories
     {
         List<Post> GetAllPosts();
         Post GetPostById(long id);
-        void CreatePost(string title, string url);
+        void CreatePost(Post post);
         void Upvote(long id);
         void Downvote(long id);
         void DeletePost(long id);

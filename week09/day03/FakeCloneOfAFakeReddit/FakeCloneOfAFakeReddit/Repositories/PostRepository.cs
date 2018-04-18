@@ -16,9 +16,9 @@ namespace FakeCloneOfAFakeReddit.Repositories
             this.context = context;
         }
 
-        public void CreatePost(string title, string url)
+        public void CreatePost(Post post)
         {
-            context.Add(new Post { Title = title, Url = url });
+            context.Add(post);
             context.SaveChanges();
         }
 
