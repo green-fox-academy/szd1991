@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FakeCloneOfAFakeReddit.Entities;
+using FakeCloneOfAFakeReddit.Models;
 using FakeCloneOfAFakeReddit.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,7 +19,7 @@ namespace FakeCloneOfAFakeReddit
         {
             services.AddMvc();
             services.AddDbContext<PostContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=FakeRedditClone;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
-            services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IRedditRepository<Post>, PostRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

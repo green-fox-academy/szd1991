@@ -18,14 +18,14 @@ namespace FakeCloneOfAFakeReddit.Repositories
 
         public void Create(Post post)
         {
-            context.Add(post);
+            context.Posts.Add(post);
             context.SaveChanges();
         }
 
-        public Post DeletePost(long id)
+        public Post Delete(long id)
         {
             Post mimic = GetById(id);
-            context.Remove(GetById(id));
+            context.Posts.Remove(GetById(id));
             context.SaveChanges();
             return mimic;
         }
@@ -34,7 +34,7 @@ namespace FakeCloneOfAFakeReddit.Repositories
         {
             Post post = GetById(id);
             post.Score--;
-            context.Update(post);
+            context.Posts.Update(post);
             context.SaveChanges();
         }
 
@@ -55,13 +55,15 @@ namespace FakeCloneOfAFakeReddit.Repositories
             if (modifiedPost.Title != null)
             {
                 post.Title = modifiedPost.Title;
+                post.Timestamp = DateTime.Now;
             }
             if (modifiedPost.Url != null)
             {
                 post.Url = modifiedPost.Url;
+                post.Timestamp = DateTime.Now;
             }
 
-            context.Update(post);
+            context.Posts.Update(post);
             context.SaveChanges();
         }
 
@@ -69,7 +71,7 @@ namespace FakeCloneOfAFakeReddit.Repositories
         {
             Post post = GetById(id);
             post.Score++;
-            context.Update(post);
+            context.Posts.Update(post);
             context.SaveChanges();
         }
     }

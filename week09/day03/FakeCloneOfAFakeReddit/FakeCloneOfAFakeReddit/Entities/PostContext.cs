@@ -10,6 +10,7 @@ namespace FakeCloneOfAFakeReddit.Entities
     public class PostContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public PostContext(DbContextOptions options) : base(options)
         {

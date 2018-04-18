@@ -52,7 +52,7 @@ namespace FakeCloneOfAFakeReddit.Controllers
         [Route("/posts/{id}")]
         public IActionResult Delete([FromRoute] long id)
         {
-            return new OkObjectResult(postRepo.DeletePost(id));
+            return new OkObjectResult(postRepo.Delete(id));
         }
 
         [HttpPut]
