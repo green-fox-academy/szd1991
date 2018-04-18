@@ -54,5 +54,13 @@ namespace FakeCloneOfAFakeReddit.Controllers
         {
             return new OkObjectResult(postRepo.DeletePost(id));
         }
+
+        [HttpPut]
+        [Route("/posts/{id}")]
+        public IActionResult Modify([FromRoute] long id, [FromBody] Post modifiedPost)
+        {
+            postRepo.Modify(id, modifiedPost);
+            return new OkObjectResult(postRepo.GetPostById(id));
+        }
     }
 }

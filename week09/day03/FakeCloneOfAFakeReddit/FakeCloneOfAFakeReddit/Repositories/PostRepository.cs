@@ -19,7 +19,6 @@ namespace FakeCloneOfAFakeReddit.Repositories
         public void CreatePost(Post post)
         {
             context.Add(post);
-            post.Timestamp = DateTime.Now;
             context.SaveChanges();
         }
 
@@ -47,6 +46,23 @@ namespace FakeCloneOfAFakeReddit.Repositories
         public Post GetPostById(long id)
         {
             return context.Posts.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void Modify(long id, Post modifiedPost)
+        {
+            Post post = GetPostById(id);
+            
+            if (modifiedPost.Title != null)
+            {
+                post.Title = modifiedPost.Title;
+            }
+            if (modifiedPost.Url != null)
+            {
+                post.Url = modifiedPost.Url;
+            }
+
+            context.Update(post);
+            context.SaveChanges();
         }
 
         public void Upvote(long id)
