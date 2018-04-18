@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace FakeCloneOfAFakeReddit.Repositories
 {
-    public interface IPostRepository
+    public interface IRedditRepository<T>
     {
-        List<Post> GetAllPosts();
-        Post GetPostById(long id);
-        void CreatePost(Post post);
+        List<T> GetAll();
+        T GetById(long id);
+        void Create(T item);
         void Upvote(long id);
         void Downvote(long id);
-        Post DeletePost(long id);
-        void Modify(long id, Post modifiedPost);
+        T DeletePost(long id);
+        void Modify(long id, T modifiedItem);
     }
 }

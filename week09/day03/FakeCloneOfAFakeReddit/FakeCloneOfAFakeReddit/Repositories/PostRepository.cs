@@ -7,7 +7,7 @@ using FakeCloneOfAFakeReddit.Models;
 
 namespace FakeCloneOfAFakeReddit.Repositories
 {
-    public class PostRepository : IPostRepository
+    public class PostRepository : IRedditRepository<Post>
     {
         private PostContext context;
 
@@ -16,7 +16,7 @@ namespace FakeCloneOfAFakeReddit.Repositories
             this.context = context;
         }
 
-        public void CreatePost(Post post)
+        public void Create(Post post)
         {
             context.Add(post);
             context.SaveChanges();
@@ -24,33 +24,33 @@ namespace FakeCloneOfAFakeReddit.Repositories
 
         public Post DeletePost(long id)
         {
-            Post mimic = GetPostById(id);
-            context.Remove(GetPostById(id));
+            Post mimic = GetById(id);
+            context.Remove(GetById(id));
             context.SaveChanges();
             return mimic;
         }
 
         public void Downvote(long id)
         {
-            Post post = GetPostById(id);
+            Post post = GetById(id);
             post.Score--;
             context.Update(post);
             context.SaveChanges();
         }
 
-        public List<Post> GetAllPosts()
+        public List<Post> GetAll()
         {
             return context.Posts.ToList();
         }
 
-        public Post GetPostById(long id)
+        public Post GetById(long id)
         {
             return context.Posts.FirstOrDefault(p => p.Id == id);
         }
 
         public void Modify(long id, Post modifiedPost)
         {
-            Post post = GetPostById(id);
+            Post post = GetById(id);
             
             if (modifiedPost.Title != null)
             {
@@ -67,7 +67,7 @@ namespace FakeCloneOfAFakeReddit.Repositories
 
         public void Upvote(long id)
         {
-            Post post = GetPostById(id);
+            Post post = GetById(id);
             post.Score++;
             context.Update(post);
             context.SaveChanges();
