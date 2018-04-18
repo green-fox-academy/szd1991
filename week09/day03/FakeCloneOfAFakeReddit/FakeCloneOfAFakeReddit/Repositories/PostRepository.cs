@@ -19,13 +19,16 @@ namespace FakeCloneOfAFakeReddit.Repositories
         public void CreatePost(Post post)
         {
             context.Add(post);
+            post.Timestamp = DateTime.Now;
             context.SaveChanges();
         }
 
-        public void DeletePost(long id)
+        public Post DeletePost(long id)
         {
+            Post mimic = GetPostById(id);
             context.Remove(GetPostById(id));
             context.SaveChanges();
+            return mimic;
         }
 
         public void Downvote(long id)

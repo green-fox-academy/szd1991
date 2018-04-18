@@ -11,9 +11,10 @@ using System;
 namespace FakeCloneOfAFakeReddit.Migrations
 {
     [DbContext(typeof(PostContext))]
-    partial class PostContextModelSnapshot : ModelSnapshot
+    [Migration("20180418130829_FixTimestamps")]
+    partial class FixTimestamps
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,8 +27,6 @@ namespace FakeCloneOfAFakeReddit.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Score");
-
-                    b.Property<DateTime>("Timestamp");
 
                     b.Property<string>("Title");
 

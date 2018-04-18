@@ -21,7 +21,7 @@ namespace FakeCloneOfAFakeReddit.Controllers
         [Route("/posts")]
         public IActionResult Index()
         {
-            return Json(new { posts = postRepo.GetAllPosts() });
+            return new OkObjectResult(postRepo.GetAllPosts());
         }
 
         [HttpPost]
@@ -30,6 +30,29 @@ namespace FakeCloneOfAFakeReddit.Controllers
         {
             postRepo.CreatePost(post);
             return new OkObjectResult(post);
+        }
+
+        [HttpPut]
+        [Route("/posts/{id}/upvote")]
+        public IActionResult Upvote([FromRoute] long id)
+        {
+            postRepo.Upvote(id);
+            return new OkObjectResult(postRepo.GetPostById(id));
+        }
+
+        [HttpPut]
+        [Route("/posts/{id}/downvote")]
+        public IActionResult Downvote([FromRoute] long id)
+        {
+            postRepo.Downvote(id);
+            return new OkObjectResult(postRepo.GetPostById(id));
+        }
+        
+        [HttpDelete]
+        [Route("/posts/{id}")]
+        public IActionResult Delete([FromRoute] long id)
+        {
+            return new OkObjectResult(postRepo.DeletePost(id));
         }
     }
 }

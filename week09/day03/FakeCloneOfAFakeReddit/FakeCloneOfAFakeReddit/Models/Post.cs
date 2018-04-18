@@ -11,9 +11,9 @@ namespace FakeCloneOfAFakeReddit.Models
         public long? Id { get; set; }
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
-        [JsonProperty(PropertyName="url")]
+        [JsonProperty(PropertyName = "url")]
         public string Url { get; set; }
-        public DateTime Timestamp { get; } = DateTime.Now;
+        public DateTime Timestamp { get; set; }
         public int Score { get; set; }
     }
 }

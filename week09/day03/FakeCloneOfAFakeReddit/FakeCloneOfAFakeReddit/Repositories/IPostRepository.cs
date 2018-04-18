@@ -13,6 +13,6 @@ namespace FakeCloneOfAFakeReddit.Repositories
         void CreatePost(Post post);
         void Upvote(long id);
         void Downvote(long id);
-        void DeletePost(long id);
+        Post DeletePost(long id);
     }
 }

@@ -11,9 +11,10 @@ using System;
 namespace FakeCloneOfAFakeReddit.Migrations
 {
     [DbContext(typeof(PostContext))]
-    partial class PostContextModelSnapshot : ModelSnapshot
+    [Migration("20180418141325_FixTimestampsNo2")]
+    partial class FixTimestampsNo2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
