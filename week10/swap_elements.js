@@ -5,11 +5,8 @@
 let abc = ["Arthur", "Boe", "Chloe"];
 
 function swapFirstLast(array) {
-  let first = array[0];
-  let last = array[array.length - 1];
-
-  array.pop();
-  array.shift();
+  let first = array.shift();
+  let last = array.pop();
 
   array.push(first);
   array.unshift(last);
