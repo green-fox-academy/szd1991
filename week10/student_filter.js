@@ -8,9 +8,7 @@ var students = [
 ]
 
 function studentsRichInCandies(listOfStudents) {
-    return listOfStudents.filter(function(student) {
-        return (student.candies > 4);
-    });
+    return listOfStudents.filter(student => student.candies > 4);
 }
 
 function candyAverage(listOfStudents) {
