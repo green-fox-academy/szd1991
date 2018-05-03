@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Checkerboard</title>
+    </head>
+    <body>
+        <canvas id="canvas" style="width: 600px; height: 600px;">
+            Sorry, your browser does not support canvas tag... :(
+        </canvas>
+
+        <script>
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+
+            canvas.width = canvas.scrollWidth;
+            canvas.height = canvas.scrollHeight;
+            offsetX = canvas.width / 8;
+            offsetY = canvas.height / 8;
+
+            for (let row = 0; row < 8; row++) {
+                for (let col = 0; col < 8; col++) {
+                    if (row == 1) {
+                        context.fillStyle = 'black';
+                        context.fillRect((row * offsetX); (col * offsetY), offsetX, offsetY);
+                    } else {
+                        //context.fillStyle = 'white';
+                        //context.fillRect(row * offsetX; col * offsetY, offsetX, offsetY);
+                    }
+                }
+            }
+
+        </script>
+    </body>
+</html>
