@@ -17,5 +17,19 @@
     </script>
     OR
     <script src="content-1.js"></script> -->
+
+    <script>
+        let pCollection = document.getElementsByTagName('p');
+
+        let backupContent = pCollection[pCollection.length - 1].innerHTML;
+
+        for (i = pCollection.length - 1; i >= 0; i--) {
+            if (i === 0) {
+                pCollection[i].innerHTML = backupContent;
+            } else {
+                pCollection[i].innerHTML = pCollection[i - 1].innerHTML;
+            }
+        }
+    </script>
   </body>
 </html>
