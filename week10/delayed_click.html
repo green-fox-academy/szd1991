@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Delayed Clcik</title>
+    </head>
+    <body>
+        <button>Magic Button</button>
+
+        <script type="text/javascript">
+            let body = document.querySelector('body');
+            let button = document.querySelector('button');
+
+            /*
+            button.addEventListener('click', function doTheMagic() {
+                setTimeout(function() {
+                    let text = document.createElement('p');
+                    text.textContent = '2 seconds elapsed...';
+                    body.appendChild(text);
+                }, 2000);
+            });
+            */
+            button.addEventListener('click', () => setTimeout(() => {
+                let text = document.createElement('p');
+                text.textContent = '2 seconds elapsed...';
+                body.appendChild(text);
+            }, 2000));
+        </script>
+    </body>
+</html>
