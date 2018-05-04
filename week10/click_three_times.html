@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!-- Create a simple HTML document with one button.
+        If the user clicks the button 3 times, and 5 seconds is already ellapsed since the page is loaded, a text should apper under the button:
+
+        5 seconds ellapsed and clicked 3 times.
+
+        If the user starts clicking before the first 5 seconds, nothing should be printed. -->
+
+        <button>Click this if you're not afraid</button>
+
+        <script type="text/javascript">
+            let body = document.querySelector('body');
+            let button = document.querySelector('button');
+            let clickCounter = 0;
+
+            button.addEventListener('click', function (event) {
+              if (event.detail % 3 === 0) {
+                let message = document.createElement('p');
+                message.textContext = '5 seconds elapsed and clicked 3 times. What a marvellous happening! ;)';
+                body.appendChild(message);
+              }
+              setTimeout(event, 5000);
+            });
+        </script>
+    </body>
+</html>
