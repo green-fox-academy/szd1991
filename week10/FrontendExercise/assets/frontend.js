@@ -83,7 +83,7 @@ $("#appenda").on("click", function () {
 });
 
 $("#dountil").on("click", function () {
-    $.post({url: window.baseUrl + "/dountil/sum", data: JSON.stringify({until: 7}), contentType: 'application/json; charset=utf-8'}).done(function (data) {
+    $.post({url: window.baseUrl + "dountil/sum", data: JSON.stringify({until: 7}), contentType: 'application/json; charset=utf-8'}).done(function (data) {
         if("result" in data && data["result"] == 28) {
             handle("#dountil_response", "OK - with /sum until=7");
         } else {
@@ -92,7 +92,7 @@ $("#dountil").on("click", function () {
     }).error(function (err) {
         handle("#dountil_response", "not ok - with /sum until=7", "Dountil", err);
     });
-    $.post({url: window.baseUrl + "/dountil/factor", data: JSON.stringify({until: 4}), contentType: 'application/json; charset=utf-8'}).done(function (data) {
+    $.post({url: window.baseUrl + "dountil/factor", data: JSON.stringify({until: 4}), contentType: 'application/json; charset=utf-8'}).done(function (data) {
         if("result" in data && data["result"] == 24) {
             handle("#dountil_response", "OK - with /factor until=4");
         } else {

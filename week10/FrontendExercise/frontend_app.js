@@ -1,9 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use('/assets', express.static('assets'));
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
@@ -44,6 +44,41 @@ app.get('/appenda', function(req, res) {
 app.get('/appenda/:appendable', function(req, res) {
     const appendable = req.params.appendable;
     res.json({ "appended": appendable + 'a' });
+});
+
+app.post('/dountil/:what', function(req, res) {
+    const what = req.params.what;
+    let until = req.body.until;
+    const errorMessage = { "error": "Please provide a number!" };
+
+    if (what === 'sum') {
+        console.log(until);
+        if (until === null || until === undefined) {
+            res.json(errorMessage);
+        } else {
+            let sum = 0;
+
+            for (let i = 1; i <= until; i++) {
+                sum += i;
+            }
+
+            res.json({ "result": sum });
+        }
+    } else if (what === 'factor') {
+        if (until === null || until === undefined) {
+            res.json(errorMessage);
+        } else {
+            let factor = 1;
+
+            for (let i = 1; i <= until; i++) {
+                factor *= i;
+            }
+
+            res.json({ "result": factor });
+        }
+    } else {
+        res.sendStatus(404).send('404 - Not Found');
+    }
 });
 
 app.listen(8080, function() { console.log('Frontend Exercise listening on port number 8080.')});
