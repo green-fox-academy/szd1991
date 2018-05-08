@@ -16,6 +16,7 @@ app.get('/contacts/:name', function(req, res) {
             name: 'Michael Jordan',
             age: 55,
             height: 198,
+            team_pic: 'https://i.forbesimg.com/media/lists/teams/chicago-bulls_416x416.jpg',
             contacts: ['twitter: @mj', 'instagram: official_michael_jordan', 'linkedin: arguably_the_greatest_player_ever_aka_mj']
         });
     } else if (name === 'lj') {
@@ -23,6 +24,7 @@ app.get('/contacts/:name', function(req, res) {
             name: 'LeBron James',
             age: 33,
             height: 203,
+            team_pic: 'https://i.forbesimg.com/media/lists/teams/cleveland-cavaliers_416x416.jpg',
             contacts: ['twitter: @lj', 'instagram: official_lebron_james', 'linkedin: arguably_the_greatest_player_ever_aka_lj']
         });
     } else {
