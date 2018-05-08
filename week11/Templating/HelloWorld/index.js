@@ -5,7 +5,7 @@ const port = 3000;
 app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
-    res.render('home.ejs');
+    res.render('home', { title: 'Hello World' });
 });
 
 app.listen(port, function() {
