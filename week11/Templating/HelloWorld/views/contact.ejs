@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Contact <%= name %></title>
+    </head>
+    <body>
+        <h1>Here you can contact <%= name %></h1>
+        <h2>Basic data:</h2>
+        <ul>
+            <li>Age: <%= age %></li>
+            <li>Height: <%= height %></li>
+        </ul>
+        <h2>Contacts:</h2>
+        <ul>
+            <% contacts.forEach(function(contact) { %>
+                <li><%= contact %></li>
+            <% }) %>
+        </ul>
+    </body>
+</html>
