@@ -19,14 +19,14 @@ namespace PalindromeCreatorLive
 
         static string CreatePalindrome(string potentialPalindrome)
         {
-            
+            string palindrome = potentialPalindrome;
 
             for (int i = potentialPalindrome.Length - 1; i >= 0; i--)
             {
-                potentialPalindrome += potentialPalindrome[i];
+                palindrome += potentialPalindrome[i];
             }
 
-            return potentialPalindrome;
+            return palindrome;
         }
     }
 }
