@@ -1,3 +1,5 @@
+'use strict';
+
 // Create a prison function, that has your name as a private fugutive variable
 // The function should return an object that has two methods:
 //  - visit() // logs "[yourname] is visited [x] time(s)" to the console.

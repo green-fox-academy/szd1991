@@ -1,3 +1,5 @@
+'use strict';
+
 // Create the multiplier function that you can use like this:
 
 function multiplier(multiplant) {
